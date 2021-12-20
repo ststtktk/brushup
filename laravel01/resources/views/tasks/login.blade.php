@@ -19,7 +19,7 @@
             <img src="/img/Career.svg" alt="careerの画像">
         </div>
         <div class="brushup">
-            <a href="tasks/brushup"><img src="/img/Brush up.svg" alt="burshupの画像"></a>
+            <a href="brushup"><img src="/img/Brush up.svg" alt="burshupの画像"></a>
         </div>
         <div class="teams">
             <img src="/img/teams.svg" alt="teamsの画像">

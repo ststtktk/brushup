@@ -25,3 +25,4 @@ Route::get('/tasks/login',function(){return view('tasks/login'); });
 Route::get('/tasks/access',function(){return view('tasks/access'); });
 Route::get('/tasks/brushup',function(){return view('tasks/brushup'); });
 Route::post('task/useradd',[App\Http\Controllers\TaskController::class, 'useradd'])->name('useradd');
+Route::post('/taskadd',[App\Http\Controllers\TaskController::class,'taskadd'])->name('taskadd');
