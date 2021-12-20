@@ -18,6 +18,7 @@ class CreateFreesTable extends Migration
             $table->integer('user_id')->unsigned()->index();
             $table->string('name');
             $table->text('free');
+            $table->text('chief_free');
             $table->timestamps();
         });
     }

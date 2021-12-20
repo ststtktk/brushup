@@ -23,22 +23,9 @@
 
 <body>
     <div class="layout">
-        <main class="center">
+        <main class="">
             @yield('content')
         </main>
-    </div>
-
-    
-    <div class="box-contact">
-        <img src="/img/company.png" alt="companyの写真">
-        <div class="contact">
-            <div class="contact-phone">
-                <p>TEL:000-0000-0000</p>
-            </div>
-            <div class="contact-mail">
-                <p>Mail:abcdefg@hiz</p>
-            </div>
-        </div>
     </div>
 </body>
 

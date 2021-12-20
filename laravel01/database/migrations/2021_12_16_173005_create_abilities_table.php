@@ -17,7 +17,16 @@ class CreateAbilitiesTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
             $table->string('name');
-            $table->string('ability');
+            $table->string('ability1');
+            $table->string('ability2');
+            $table->string('ability3');
+            $table->string('ability4');
+            $table->string('ability5');
+            $table->string('chief_ability1');
+            $table->string('chief_ability2');
+            $table->string('chief_ability3');
+            $table->string('chief_ability4');
+            $table->string('chief_ability5');
             $table->timestamps();
         });
     }

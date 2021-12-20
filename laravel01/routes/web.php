@@ -22,3 +22,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/',function(){return view('tasks/home'); });
 Route::get('/tasks/login',function(){return view('tasks/login'); });
+Route::get('/tasks/access',function(){return view('tasks/access'); });
+Route::get('/tasks/brushup',function(){return view('tasks/brushup'); });
+Route::post('task/useradd',[App\Http\Controllers\TaskController::class, 'useradd'])->name('useradd');

@@ -1,0 +1,187 @@
+@extends('layouts.layout')
+
+@section('content')
+
+<div class="access-view">
+    <div class="point">
+        <div class="brushup">
+            <img src="/img/Brush up.svg" alt="burshupの画像">
+        </div>
+    </div>
+</div>
+
+<div class="form">
+
+    <div class="my_profile">
+        <h2>MyProfile</h2>
+        <form action="" method="post" enctype="multipart/form-data">
+            <div class="profile">
+                <label for="name">氏名</label>
+                <input type="text" name="name" id="name" value="">
+                <br>
+                <label for="my_team">部署</label>
+                <input type="text" name="my_team" id="my_team" value="">
+                <br>
+                <label for="my_year">勤続年数</label>
+                <select name="my_year" id="my_year">
+                    <option value="">選択してください</option>
+                    <option value="1">1年目~2年目</option>
+                    <option value="2">3年目~5年目</option>
+                    <option value="3">6年目~8年目</option>
+                    <option value="4">9年目~10年目</option>
+                    <option value="5">11年目~</option>
+                </select>
+            </div>
+            <div class="works">
+                <p>仕事内容</p>
+                <textarea name="works" cols="70" rows="5"></textarea>
+            </div>
+            <div class="result">
+                <p>評価</p>
+                <ul>
+                    <li>A:とてもできた(とても合っている)</li>
+                    <li>B:できた(合っている)</li>
+                    <li>C:どちらでもない</li>
+                    <li>D:できなかった(合っていない)</li>
+                    <li>E:全くできなかった(とても合っていない)</li>
+                </ul>
+                <div class="result_box">
+                    <p>自己評価</p>
+                    <label for="my_result1">1.仕事内容の理解と把握</label><br>
+                    <input type="radio" name="my_result1" id="my_result1" value="A">A
+                    <input type="radio" name="my_result1" id="my_result1" value="B">B
+                    <input type="radio" name="my_result1" id="my_result1" value="C">C
+                    <input type="radio" name="my_result1" id="my_result1" value="D">D
+                    <input type="radio" name="my_result1" id="my_result1" value="E">E
+                    <br>
+                    <label for="my_result2">2.成果への追求</label><br>
+                    <input type="radio" name="my_result2" id="my_result2" value="A">A
+                    <input type="radio" name="my_result2" id="my_result2" value="B">B
+                    <input type="radio" name="my_result2" id="my_result2" value="C">C
+                    <input type="radio" name="my_result2" id="my_result2" value="D">D
+                    <input type="radio" name="my_result2" id="my_result2" value="E">E 
+                    <br>
+                    <label for="my_result3">3.社内ルール・法令の把握と理解</label><br>
+                    <input type="radio" name="my_result3" id="my_result3" value="A">A
+                    <input type="radio" name="my_result3" id="my_result3" value="B">B
+                    <input type="radio" name="my_result3" id="my_result3" value="C">C
+                    <input type="radio" name="my_result3" id="my_result3" value="D">D
+                    <input type="radio" name="my_result3" id="my_result3" value="E">E
+                    <br>
+                    <label for="my_result4">4.上司との報告・連絡・相談</label><br>
+                    <input type="radio" name="my_result4" id="my_result4" value="A">A
+                    <input type="radio" name="my_result4" id="my_result4" value="B">B
+                    <input type="radio" name="my_result4" id="my_result4" value="C">C
+                    <input type="radio" name="my_result4" id="my_result4" value="D">D
+                    <input type="radio" name="my_result4" id="my_result4" value="E">E  
+                    <br>
+                    <label for="my_result5">5.業務内容とのマッチング度</label><br>
+                    <input type="radio" name="my_result5" id="my_result5" value="A">A
+                    <input type="radio" name="my_result5" id="my_result5" value="B">B
+                    <input type="radio" name="my_result5" id="my_result5" value="C">C
+                    <input type="radio" name="my_result5" id="my_result5" value="D">D
+                    <input type="radio" name="my_result5" id="my_result5" value="E">E 
+                    <br>
+                </div>
+            </div>
+            <div class="report">
+                <p>所見欄(思ったこと・感じたことを自由に記入して下さい)</p>
+                <div class="report_box">
+                    <label for="my_report">本人記入欄</label>
+                    <textarea name="my_report" id="my_report" cols="50" rows="5"></textarea>
+                </div>
+            </div>
+            <input type="submit" name="btn_submit" value="内容を確認する">
+        </form>
+    </div>
+    
+    <div class="chief_profile">
+        <h2>ChiefProfile</h2>
+        <form action="" method="post" enctype="multipart/form-data">
+            <div class="profile">
+                <label for="chief_name">上司氏名</label>
+                <input type="text" name="chief_name" id="chief_name" value="">
+                <br>
+                <label for="chief_team">部署</label>
+                <input type="text" name="chief_team" id="chief_team" value="">
+                <br>
+                <label for="chief_year">勤続年数</label>
+                <select name="chief_year" id="chief_year">
+                    <option value="">選択してください</option>
+                    <option value="1">1年目~2年目</option>
+                    <option value="2">3年目~5年目</option>
+                    <option value="3">6年目~8年目</option>
+                    <option value="4">9年目~10年目</option>
+                    <option value="5">11年目~</option>
+                </select>
+            </div>
+            <div class="works">
+                <p>仕事内容</p>
+                <textarea name="works" cols="70" rows="5"></textarea>
+            </div>
+            <div class="result">
+                <p>評価</p>
+                <ul>
+                    <li>A:とてもできた(とても合っている)</li>
+                    <li>B:できた(合っている)</li>
+                    <li>C:どちらでもない</li>
+                    <li>D:できなかった(合っていない)</li>
+                    <li>E:全くできなかった(とても合っていない)</li>
+                </ul>
+                <div class="result_box">
+                    <p>上司評価</p>
+                    <label for="chief_result1">1.仕事内容の理解と把握</label><br>
+                    <input type="radio" name="chief_result1" id="chief_result1" value="A">A
+                    <input type="radio" name="chief_result1" id="chief_result1" value="B">B
+                    <input type="radio" name="chief_result1" id="chief_result1" value="C">C
+                    <input type="radio" name="chief_result1" id="chief_result1" value="D">D
+                    <input type="radio" name="chief_result1" id="chief_result1" value="E">E
+                    <br>
+                    <label for="chief_result">2.成果への追求</label><br>
+                    <input type="radio" name="chief_result2" id="chief_result2" value="A">A
+                    <input type="radio" name="chief_result2" id="chief_result2" value="B">B
+                    <input type="radio" name="chief_result2" id="chief_result2" value="C">C
+                    <input type="radio" name="chief_result2" id="chief_result2" value="D">D
+                    <input type="radio" name="chief_result2" id="chief_result2" value="E">E 
+                    <br>
+                    <label for="chief_result">3.社内ルール・法令の把握と理解</label><br>
+                    <input type="radio" name="chief_result3" id="chief_result3" value="A">A
+                    <input type="radio" name="chief_result3" id="chief_result3" value="B">B
+                    <input type="radio" name="chief_result3" id="chief_result3" value="C">C
+                    <input type="radio" name="chief_result3" id="chief_result3" value="D">D
+                    <input type="radio" name="chief_result3" id="chief_result3" value="E">E
+                    <br>
+                    <label for="chief_result">4.上司との報告・連絡・相談</label><br>
+                    <input type="radio" name="chief_result4" id="chief_result4" value="A">A
+                    <input type="radio" name="chief_result4" id="chief_result4" value="B">B
+                    <input type="radio" name="chief_result4" id="chief_result4" value="C">C
+                    <input type="radio" name="chief_result4" id="chief_result4" value="D">D
+                    <input type="radio" name="chief_result4" id="chief_result4" value="E">E  
+                    <br>
+                    <label for="chief_result">5.業務内容とのマッチング度</label><br>
+                    <input type="radio" name="chief_result5" id="chief_result5" value="A">A
+                    <input type="radio" name="chief_result5" id="chief_result5" value="B">B
+                    <input type="radio" name="chief_result5" id="chief_result5" value="C">C
+                    <input type="radio" name="chief_result5" id="chief_result5" value="D">D
+                    <input type="radio" name="chief_result5" id="chief_result5" value="E">E 
+                    <br>
+                </div>
+            </div>
+            <div class="report">
+                <p>所見欄(思ったこと・感じたことを自由に記入して下さい)</p>
+                <div class="report_box">
+                    <label for="chief_report">上司記入欄</label>
+                    <textarea name="chief_report" id="chief_report" cols="50" rows="5"></textarea>
+                </div>
+            </div>
+            <input type="submit" name="btn_submit" value="内容を確認する">
+        </form>
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+
+@endsection

@@ -17,7 +17,12 @@ class CreateTasksTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
             $table->string('name');
+            $table->string('class');
+            $table->string('workyears');
             $table->text('task');
+            $table->string('chief_name');
+            $table->string('chief_class');
+            $table->string('chief_workyears');
             $table->timestamps();
         });
         
