@@ -2,6 +2,8 @@
 
 @section('content')
 
+@auth
+
 <div class="access-view">
     <div class="point">
         <div class="brushup">
@@ -11,6 +13,14 @@
     <div class="loginname">
         
     </div>
+
+    <div class="time">
+        @foreach($tasks as $task)
+        <select name="time" id="">
+            <option value="day">{{ $task->time }}</option>
+        </select>
+        @endforeach
+    </div>
 </div>
 
 <div class="form">
@@ -19,11 +29,6 @@
         <h2>MyProfile</h2>
         <form action="{{ route('taskadd') }}" method="POST">
         {{ csrf_field() }}
-            <div class="time">
-                <label for="time">作成日</label>
-                <input type="month" name="time">
-            </div>
-
             <div class="profile">
                 <label for="name">氏名</label>
                 <input type="text" name="name" id="name" value="">
@@ -199,4 +204,5 @@
 <br>
 <br>
 
+@endauth
 @endsection

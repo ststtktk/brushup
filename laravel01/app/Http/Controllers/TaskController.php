@@ -51,6 +51,7 @@ class TaskController extends Controller
        {
            Task::create([
                'user_id'=>0,
+               'time'=>$request->time,
                'name'=>$request->name,
                'class'=>$request->class,
                'workyears'=>$request->workyears,
@@ -72,10 +73,5 @@ class TaskController extends Controller
                'chief_free'=>$request->chief_free
            ]);
            return redirect('tasks/login');
-
-           //Ability::create([
-            //   'user_id'
-           // ])
-
        }
 }

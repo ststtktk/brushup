@@ -13,10 +13,12 @@
     </form>
 </div>
 
+<h2>ログインユーザー：<?php $user=Auth::User(); ?>{{ $user->name }}</h2>
+
 <div class="access-view">
     <div class="point">
         <div class="career">
-            <img src="/img/Career.svg" alt="careerの画像">
+            <a href="career"><img src="/img/Career.svg" alt="careerの画像"></a>
         </div>
         <div class="brushup">
             <a href="brushup"><img src="/img/Brush up.svg" alt="burshupの画像"></a>
