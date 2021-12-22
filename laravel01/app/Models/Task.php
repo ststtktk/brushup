@@ -34,6 +34,9 @@ class Task extends Model
         'chief_free'
     ];
 
+    protected $casts = [
+        //'time' => 'date'
+    ];
 
     
 }

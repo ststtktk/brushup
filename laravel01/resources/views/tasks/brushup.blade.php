@@ -9,7 +9,7 @@
         </div>
     </div>
     <div class="loginname">
-        
+        <h2>ログインユーザー：<?php $user=Auth::User(); ?>{{ $user->name }}</h2>
     </div>
 </div>
 
@@ -25,6 +25,7 @@
             </div>
 
             <div class="profile">
+                <input type="hidden" name="user_id" value="<?php $user = Auth::user(); ?>{{ $user->id }}">
                 <label for="name">氏名</label>
                 <input type="text" name="name" id="name" value="">
                 <br>

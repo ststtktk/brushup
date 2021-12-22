@@ -50,7 +50,7 @@ class TaskController extends Controller
        Public function taskadd(Request $request)
        {
            Task::create([
-               'user_id'=>0,
+               'user_id'=>$request->user_id,
                'time'=>$request->time,
                'name'=>$request->name,
                'class'=>$request->class,
@@ -74,4 +74,33 @@ class TaskController extends Controller
            ]);
            return redirect('tasks/login');
        }
+
+           /**
+            * 作成月の表示
+            */
+            Public function timeview()
+            {
+                $userid = auth()->id();
+
+                $tasks = Task::where('user_id',$userid)->orderBy('created_at','desc')->get();
+                return view('tasks.career',[
+                    'tasks' => $tasks,
+                ]);
+            }
+
+            /**
+             * ドロップダウンリストの絞り込み
+             * 
+             */
+            Public function show(Request $request)
+            {
+                $tasks = Task::where('user_id',$request->id)->where('time',$request->time)->get();
+                //foreach($tasks as $task){
+                return view('tasks.career',[
+                    'tasks' => $tasks,
+                ]);
+                //}
+            }
+       
+            //return redirect('tasks/career');
 }

@@ -25,4 +25,14 @@ class HomeController extends Controller
     {
         return view('tasks/login');
     }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function timeview()
+    {
+        return view('tasks/career');
+    }
 }

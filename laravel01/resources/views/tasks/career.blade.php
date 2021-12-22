@@ -4,51 +4,76 @@
 
 @auth
 
-<div class="access-view">
+<!--
+    <div class="access-view">
     <div class="point">
         <div class="brushup">
-            <img src="/img/Brush up.svg" alt="burshupの画像">
+            <img src="/img/Career.svg" alt="burshupの画像">
         </div>
     </div>
-    <div class="loginname">
-        
-    </div>
-
-    <div class="time">
-        @foreach($tasks as $task)
-        <select name="time" id="">
-            <option value="day">{{ $task->time }}</option>
-        </select>
-        @endforeach
-    </div>
 </div>
+-->
+
+<div class="search">
+    <form action="{{ route('show') }}" method="POST">
+    @csrf
+        <div class="loginname">
+            <h2>ログインユーザー：<?php $user=Auth::User(); ?>{{ $user->name }}</h2>
+            <input type="hidden" name="id" value="{{ $user->id }}">
+        </div>
+
+        <div class="time">
+            <select name="time" id="">  
+            @foreach($tasks as $task)
+                <option name="time">{{ $task->time }}</option>
+            @endforeach
+            </select>
+        </div>
+
+        <input type="submit" value="検索" name="search_btn">
+    </form>
+</div>
+
+<!-- 
+user_idが等しいものがない場合
+<p>投稿がありません</p>
+ -->
+
+@if(isset($_POST['search_btn']))
 
 <div class="form">
 
+    
+    @foreach($tasks as $task)
     <div class="my_profile">
         <h2>MyProfile</h2>
         <form action="{{ route('taskadd') }}" method="POST">
         {{ csrf_field() }}
             <div class="profile">
                 <label for="name">氏名</label>
-                <input type="text" name="name" id="name" value="">
+                <input type="text" name="name" id="name" value="{{ $task->name }}">
                 <br>
                 <label for="class">部署</label>
-                <input type="text" name="class" id="class" value="">
+                <input type="text" name="class" id="class" value="{{ $task->class }}">
                 <br>
                 <label for="workyears">勤続年数</label>
-                <select name="workyears" id="workyears">
-                    <option value="">選択してください</option>
-                    <option value="1">1年目~2年目</option>
-                    <option value="2">3年目~5年目</option>
-                    <option value="3">6年目~8年目</option>
-                    <option value="4">9年目~10年目</option>
-                    <option value="5">11年目~</option>
-                </select>
+                    @if($task->workyears == 1)
+                        1年目~2年目
+                    @elseif($task->workyears == 2)
+                        3年目~5年目
+                    @elseif($task->workyears == 3)
+                        6年目~8年目
+                    @elseif($task->workyears == 4)
+                        9年目~10年目
+                    @elseif($task->workyears == 5)
+                        11年目~
+                    @else
+                        選択されていません
+                    @endif
             </div>
             <div class="task">
                 <p>仕事内容</p>
-                <textarea name="task" cols="70" rows="5"></textarea>
+                <textarea name="task" cols="70" rows="5">{{ $task->task }}</textarea>
             </div>
 
             <div class="result">
@@ -63,39 +88,19 @@
                 <div class="result_box">
                     <p>自己評価</p>
                     <label for="my_result1">1.仕事内容の理解と把握</label><br>
-                    <input type="radio" name="ability1" id="ability1" value="A">A
-                    <input type="radio" name="ability1" id="ability1" value="B">B
-                    <input type="radio" name="ability1" id="ability1" value="C">C
-                    <input type="radio" name="ability1" id="ability1" value="D">D
-                    <input type="radio" name="ability1" id="ability1" value="E">E
+                    {{ $task->ability1 }}
                     <br>
                     <label for="my_result2">2.成果への追求</label><br>
-                    <input type="radio" name="ability2" id="ability2" value="A">A
-                    <input type="radio" name="ability2" id="ability2" value="B">B
-                    <input type="radio" name="ability2" id="ability2" value="C">C
-                    <input type="radio" name="ability2" id="ability2" value="D">D
-                    <input type="radio" name="ability2" id="ability2" value="E">E 
+                    {{ $task->ability2 }}
                     <br>
                     <label for="my_result3">3.社内ルール・法令の把握と理解</label><br>
-                    <input type="radio" name="ability3" id="ability3" value="A">A
-                    <input type="radio" name="ability3" id="ability3" value="B">B
-                    <input type="radio" name="ability3" id="ability3" value="C">C
-                    <input type="radio" name="ability3" id="ability3" value="D">D
-                    <input type="radio" name="ability3" id="ability3" value="E">E
+                    {{ $task->ability3 }}
                     <br>
                     <label for="my_result4">4.上司との報告・連絡・相談</label><br>
-                    <input type="radio" name="ability4" id="ability4" value="A">A
-                    <input type="radio" name="ability4" id="ability4" value="B">B
-                    <input type="radio" name="ability4" id="ability4" value="C">C
-                    <input type="radio" name="ability4" id="ability4" value="D">D
-                    <input type="radio" name="ability4" id="ability4" value="E">E  
+                    {{ $task->ability4 }}
                     <br>
                     <label for="my_result5">5.業務内容とのマッチング度</label><br>
-                    <input type="radio" name="ability5" id="ability5" value="A">A
-                    <input type="radio" name="ability5" id="ability5" value="B">B
-                    <input type="radio" name="ability5" id="ability5" value="C">C
-                    <input type="radio" name="ability5" id="ability5" value="D">D
-                    <input type="radio" name="ability5" id="ability5" value="E">E 
+                    {{ $task->ability5 }}
                     <br>
                 </div>
             </div>
@@ -104,7 +109,7 @@
                 <p>所見欄(思ったこと・感じたことを自由に記入して下さい)</p>
                 <div class="report_box">
                     <label for="free">本人記入欄</label>
-                    <textarea name="free" id="free" cols="50" rows="5"></textarea>
+                    <textarea name="free" id="free" cols="50" rows="5">{{ $task->free }}</textarea>
                 </div>
             </div>
 
@@ -117,20 +122,25 @@
         <!--<form action="{{ route('taskadd') }}" method="post">-->
             <div class="profile">
                 <label for="chief_name">上司氏名</label>
-                <input type="text" name="chief_name" id="chief_name" value="">
+                <input type="text" name="chief_name" id="chief_name" value="{{ $task->chief_name }}">
                 <br>
                 <label for="chief_class">部署</label>
-                <input type="text" name="chief_class" id="chief_class" value="">
+                <input type="text" name="chief_class" id="chief_class" value="{{ $task->chief_class }}">
                 <br>
                 <label for="chief_workyears">勤続年数</label>
-                <select name="chief_workyears" id="chief_workyears">
-                    <option value="">選択してください</option>
-                    <option value="1">1年目~2年目</option>
-                    <option value="2">3年目~5年目</option>
-                    <option value="3">6年目~8年目</option>
-                    <option value="4">9年目~10年目</option>
-                    <option value="5">11年目~</option>
-                </select>
+                    @if($task->chief_workyears == 1)
+                        1年目~2年目
+                    @elseif($task->chief_workyears == 2)
+                        3年目~5年目
+                    @elseif($task->chief_workyears == 3)
+                        6年目~8年目
+                    @elseif($task->chief_workyears == 4)
+                        9年目~10年目
+                    @elseif($task->chief_workyears == 5)
+                        11年目~
+                    @else
+                        選択されていません
+                    @endif
             </div>
             <div class="works">
                 <p>仕事内容</p>
@@ -149,39 +159,19 @@
                 <div class="result_box">
                     <p>上司評価</p>
                     <label for="chief_result1">1.仕事内容の理解と把握</label><br>
-                    <input type="radio" name="chief_ability1" id="chief_ability1" value="A">A
-                    <input type="radio" name="chief_ability1" id="chief_ability1" value="B">B
-                    <input type="radio" name="chief_ability1" id="chief_ability1" value="C">C
-                    <input type="radio" name="chief_ability1" id="chief_ability1" value="D">D
-                    <input type="radio" name="chief_ability1" id="chief_ability1" value="E">E
+                    {{ $task->chief_ability1 }}
                     <br>
                     <label for="chief_result">2.成果への追求</label><br>
-                    <input type="radio" name="chief_ability2" id="chief_ability2" value="A">A
-                    <input type="radio" name="chief_ability2" id="chief_ability2" value="B">B
-                    <input type="radio" name="chief_ability2" id="chief_ability2" value="C">C
-                    <input type="radio" name="chief_ability2" id="chief_ability2" value="D">D
-                    <input type="radio" name="chief_ability2" id="chief_ability2" value="E">E 
+                    {{ $task->chief_ability2 }}
                     <br>
                     <label for="chief_result">3.社内ルール・法令の把握と理解</label><br>
-                    <input type="radio" name="chief_ability3" id="chief_ability3" value="A">A
-                    <input type="radio" name="chief_ability3" id="chief_ability3" value="B">B
-                    <input type="radio" name="chief_ability3" id="chief_ability3" value="C">C
-                    <input type="radio" name="chief_ability3" id="chief_ability3" value="D">D
-                    <input type="radio" name="chief_ability3" id="chief_ability3" value="E">E
+                    {{ $task->chief_ability3 }}
                     <br>
                     <label for="chief_result">4.上司との報告・連絡・相談</label><br>
-                    <input type="radio" name="chief_ability4" id="chief_ability4" value="A">A
-                    <input type="radio" name="chief_ability4" id="chief_ability4" value="B">B
-                    <input type="radio" name="chief_ability4" id="chief_ability4" value="C">C
-                    <input type="radio" name="chief_ability4" id="chief_ability4" value="D">D
-                    <input type="radio" name="chief_ability4" id="chief_ability4" value="E">E  
+                    {{ $task->chief_ability4 }}
                     <br>
                     <label for="chief_result">5.業務内容とのマッチング度</label><br>
-                    <input type="radio" name="chief_ability5" id="chief_ability5" value="A">A
-                    <input type="radio" name="chief_ability5" id="chief_ability5" value="B">B
-                    <input type="radio" name="chief_ability5" id="chief_ability5" value="C">C
-                    <input type="radio" name="chief_ability5" id="chief_ability5" value="D">D
-                    <input type="radio" name="chief_ability5" id="chief_ability5" value="E">E 
+                    {{ $task->chief_ability5 }}
                     <br>
                 </div>
             </div>
@@ -190,7 +180,7 @@
                 <p>所見欄(思ったこと・感じたことを自由に記入して下さい)</p>
                 <div class="report_box">
                     <label for="chief_free">上司記入欄</label>
-                    <textarea name="chief_free" id="chief_free" cols="50" rows="5"></textarea>
+                    <textarea name="chief_free" id="chief_free" cols="50" rows="5">{{ $task->chief_free }}</textarea>
                 </div>
             </div>
 
@@ -198,6 +188,14 @@
         </form>
     </div>
 </div>
+@endforeach
+
+
+@else
+<p>検索して下さい</p>
+
+@endif
+
 
 <br>
 <br>
