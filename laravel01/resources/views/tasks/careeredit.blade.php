@@ -21,6 +21,7 @@
             <h2>ログインユーザー：<?php $user=Auth::User(); ?>{{ $user->name }}</h2>
             <input type="hidden" name="id" value="{{ $user->id }}">
         </div>
+        <h2>タスク編集</h2>
 
         <div class="title">
             <a href="login">ホーム画面</a>
@@ -51,14 +52,14 @@ user_idが等しいものがない場合
     @foreach($tasks as $task)
     <div class="my_profile">
         <h2>MyProfile</h2>
-        <form action="careeredit" method="GET">
+        <form action="{{ route('taskadd') }}" method="POST">
         {{ csrf_field() }}
             <div class="profile">
                 <label for="name">氏名</label>
-                {{ $task->name }}
+                <input type="text" name="name" id="name" value="{{ $task->name }}">
                 <br>
                 <label for="class">部署</label>
-                {{ $task->class }}
+                <input type="text" name="class" id="class" value="{{ $task->class }}">
                 <br>
                 <label for="workyears">勤続年数</label>
                     @if($task->workyears == 1)
@@ -76,8 +77,8 @@ user_idが等しいものがない場合
                     @endif
             </div>
             <div class="task">
-                <label for="">仕事内容</label><br>
-                {{ $task->task }}
+                <p>仕事内容</p>
+                <textarea name="task" cols="70" rows="5">{{ $task->task }}</textarea>
             </div>
 
             <div class="result">
@@ -112,8 +113,8 @@ user_idが等しいものがない場合
             <div class="report">
                 <p>所見欄(思ったこと・感じたことを自由に記入して下さい)</p>
                 <div class="report_box">
-                    <label for="free">記入欄</label>
-                    {{ $task->free }}
+                    <label for="free">本人記入欄</label>
+                    <textarea name="free" id="free" cols="50" rows="5">{{ $task->free }}</textarea>
                 </div>
             </div>
 
@@ -126,10 +127,10 @@ user_idが等しいものがない場合
         <!--<form action="{{ route('taskadd') }}" method="post">-->
             <div class="profile">
                 <label for="chief_name">上司氏名</label>
-                {{ $task->chief_name }}
+                <input type="text" name="chief_name" id="chief_name" value="{{ $task->chief_name }}">
                 <br>
                 <label for="chief_class">部署</label>
-                {{ $task->chief_class }}
+                <input type="text" name="chief_class" id="chief_class" value="{{ $task->chief_class }}">
                 <br>
                 <label for="chief_workyears">勤続年数</label>
                     @if($task->chief_workyears == 1)
@@ -147,8 +148,8 @@ user_idが等しいものがない場合
                     @endif
             </div>
             <div class="works">
-                <label for="">仕事内容</label><br>
-                <br>
+                <p>仕事内容</p>
+                <textarea name="works" cols="70" rows="5">入力の必要はありません</textarea>
             </div>
 
             <div class="result">
@@ -183,12 +184,12 @@ user_idが等しいものがない場合
             <div class="report">
                 <p>所見欄(思ったこと・感じたことを自由に記入して下さい)</p>
                 <div class="report_box">
-                    <label for="chief_free">記入欄</label>
-                    {{ $task->chief_free }}
+                    <label for="chief_free">上司記入欄</label>
+                    <textarea name="chief_free" id="chief_free" cols="50" rows="5">{{ $task->chief_free }}</textarea>
                 </div>
             </div>
 
-            <input type="submit" name="btn_submit" value="内容を編集する">
+            <input type="submit" name="btn_submit" value="内容を確認する">
         </form>
     </div>
 </div>

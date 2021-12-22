@@ -82,9 +82,9 @@ class TaskController extends Controller
             {
                 $userid = auth()->id();
 
-                $tasks = Task::where('user_id',$userid)->orderBy('created_at','desc')->get();
+                $times = Task::where('user_id',$userid)->orderBy('created_at','desc')->get();
                 return view('tasks.career',[
-                    'tasks' => $tasks,
+                    'times' => $times,
                 ]);
             }
 
@@ -94,9 +94,14 @@ class TaskController extends Controller
              */
             Public function show(Request $request)
             {
+                $userid = auth()->id();
+
+                $times = Task::where('user_id',$userid)->orderBy('created_at','desc')->get();
+
                 $tasks = Task::where('user_id',$request->id)->where('time',$request->time)->get();
                 //foreach($tasks as $task){
                 return view('tasks.career',[
+                    'times' =>$times,
                     'tasks' => $tasks,
                 ]);
                 //}

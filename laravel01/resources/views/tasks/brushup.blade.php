@@ -3,13 +3,18 @@
 @section('content')
 
 <div class="access-view">
+    <!--
     <div class="point">
         <div class="brushup">
             <img src="/img/Brush up.svg" alt="burshupの画像">
         </div>
     </div>
+    -->
     <div class="loginname">
         <h2>ログインユーザー：<?php $user=Auth::User(); ?>{{ $user->name }}</h2>
+    </div>
+    <div class="title">
+        <a href="login">ホーム画面</a>
     </div>
 </div>
 
@@ -189,7 +194,6 @@
                     <textarea name="chief_free" id="chief_free" cols="50" rows="5"></textarea>
                 </div>
             </div>
-
             <input type="submit" name="btn_submit" value="内容を確認する">
         </form>
     </div>
