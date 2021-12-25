@@ -13,7 +13,7 @@
     {{ $task->time }}
         <div class="my_profile">
         <h2>MyProfile</h2>
-        <form action="{{ route('taskadd') }}" method="POST">
+        <form action="update" method="POST">
         {{ csrf_field() }}
             <div class="profile">
                 <label for="name">氏名</label>
@@ -24,17 +24,59 @@
                 <br>
                 <label for="workyears">勤続年数</label>
                     @if($task->workyears == 1)
-                        1年目~2年目
+                    <select name="workyears" id="workyears">
+                    <option value="">選択してください</option>
+                    <option value="1" selected>1年目~2年目</option>
+                    <option value="2">3年目~5年目</option>
+                    <option value="3">6年目~8年目</option>
+                    <option value="4">9年目~10年目</option>
+                    <option value="5">11年目~</option>
+                    </select>
                     @elseif($task->workyears == 2)
-                        3年目~5年目
+                    <select name="workyears" id="workyears">
+                    <option value="">選択してください</option>
+                    <option value="1">1年目~2年目</option>
+                    <option value="2" selected>3年目~5年目</option>
+                    <option value="3">6年目~8年目</option>
+                    <option value="4">9年目~10年目</option>
+                    <option value="5">11年目~</option>
+                    </select>
                     @elseif($task->workyears == 3)
-                        6年目~8年目
+                    <select name="workyears" id="workyears">
+                    <option value="">選択してください</option>
+                    <option value="1">1年目~2年目</option>
+                    <option value="2">3年目~5年目</option>
+                    <option value="3" selected>6年目~8年目</option>
+                    <option value="4">9年目~10年目</option>
+                    <option value="5">11年目~</option>
+                    </select>
                     @elseif($task->workyears == 4)
-                        9年目~10年目
+                    <select name="workyears" id="workyears">
+                    <option value="">選択してください</option>
+                    <option value="1">1年目~2年目</option>
+                    <option value="2">3年目~5年目</option>
+                    <option value="3">6年目~8年目</option>
+                    <option value="4" selected>9年目~10年目</option>
+                    <option value="5">11年目~</option>
+                    </select>
                     @elseif($task->workyears == 5)
-                        11年目~
+                    <select name="workyears" id="workyears">
+                    <option value="">選択してください</option>
+                    <option value="1">1年目~2年目</option>
+                    <option value="2">3年目~5年目</option>
+                    <option value="3">6年目~8年目</option>
+                    <option value="4">9年目~10年目</option>
+                    <option value="5" selected>11年目~</option>
+                    </select>
                     @else
-                        選択されていません
+                    <select name="workyears" id="workyears">
+                    <option value="">選択してください</option>
+                    <option value="1">1年目~2年目</option>
+                    <option value="2">3年目~5年目</option>
+                    <option value="3">6年目~8年目</option>
+                    <option value="4">9年目~10年目</option>
+                    <option value="5">11年目~</option>
+                    </select>
                     @endif
             </div>
             <div class="task">
@@ -54,20 +96,225 @@
                 <div class="result_box">
                     <p>自己評価</p>
                     <label for="my_result1">1.仕事内容の理解と把握</label><br>
-                    {{ $task->ability1 }}
-                    <br>
+                        @if($task->ability1 === 'A')
+                        <input type="radio" name="ability1" id="ability1" value="A" checked>A
+                        <input type="radio" name="ability1" id="ability1" value="B">B
+                        <input type="radio" name="ability1" id="ability1" value="C">C
+                        <input type="radio" name="ability1" id="ability1" value="D">D
+                        <input type="radio" name="ability1" id="ability1" value="E">E
+                        <br>
+                        @elseif($task->ability1 === 'B')
+                        <input type="radio" name="ability1" id="ability1" value="A">A
+                        <input type="radio" name="ability1" id="ability1" value="B" checked>B
+                        <input type="radio" name="ability1" id="ability1" value="C">C
+                        <input type="radio" name="ability1" id="ability1" value="D">D
+                        <input type="radio" name="ability1" id="ability1" value="E">E
+                        <br>
+                        @elseif($task->ability1 === 'C')
+                        <input type="radio" name="ability1" id="ability1" value="A">A
+                        <input type="radio" name="ability1" id="ability1" value="B">B
+                        <input type="radio" name="ability1" id="ability1" value="C" checked>C
+                        <input type="radio" name="ability1" id="ability1" value="D">D
+                        <input type="radio" name="ability1" id="ability1" value="E">E
+                        <br>
+                        @elseif($task->ability1 === 'D')
+                        <input type="radio" name="ability1" id="ability1" value="A">A
+                        <input type="radio" name="ability1" id="ability1" value="B">B
+                        <input type="radio" name="ability1" id="ability1" value="C">C
+                        <input type="radio" name="ability1" id="ability1" value="D" checked>D
+                        <input type="radio" name="ability1" id="ability1" value="E">E
+                        <br>
+                        @elseif($task->ability1 === 'E')
+                        <input type="radio" name="ability1" id="ability1" value="A">A
+                        <input type="radio" name="ability1" id="ability1" value="B">B
+                        <input type="radio" name="ability1" id="ability1" value="C">C
+                        <input type="radio" name="ability1" id="ability1" value="D">D
+                        <input type="radio" name="ability1" id="ability1" value="E" checked>E
+                        <br>
+                        @else
+                        <input type="radio" name="ability1" id="ability1" value="A">A
+                        <input type="radio" name="ability1" id="ability1" value="B">B
+                        <input type="radio" name="ability1" id="ability1" value="C">C
+                        <input type="radio" name="ability1" id="ability1" value="D">D
+                        <input type="radio" name="ability1" id="ability1" value="E">E
+                        <br>
+                        @endif
                     <label for="my_result2">2.成果への追求</label><br>
-                    {{ $task->ability2 }}
-                    <br>
+                        @if($task->ability2 === 'A')
+                        <input type="radio" name="ability2" id="ability2" value="A" checked>A
+                        <input type="radio" name="ability2" id="ability2" value="B">B
+                        <input type="radio" name="ability2" id="ability2" value="C">C
+                        <input type="radio" name="ability2" id="ability2" value="D">D
+                        <input type="radio" name="ability2" id="ability2" value="E">E
+                        <br>
+                        @elseif($task->ability2 === 'B')
+                        <input type="radio" name="ability2" id="ability2" value="A">A
+                        <input type="radio" name="ability2" id="ability2" value="B" checked>B
+                        <input type="radio" name="ability2" id="ability2" value="C">C
+                        <input type="radio" name="ability2" id="ability2" value="D">D
+                        <input type="radio" name="ability2" id="ability2" value="E">E
+                        <br>
+                        @elseif($task->ability2 === 'C')
+                        <input type="radio" name="ability2" id="ability2" value="A">A
+                        <input type="radio" name="ability2" id="ability2" value="B">B
+                        <input type="radio" name="ability2" id="ability2" value="C" checked>C
+                        <input type="radio" name="ability2" id="ability2" value="D">D
+                        <input type="radio" name="ability2" id="ability2" value="E">E
+                        <br>
+                        @elseif($task->ability2 === 'D')
+                        <input type="radio" name="ability2" id="ability2" value="A">A
+                        <input type="radio" name="ability2" id="ability2" value="B">B
+                        <input type="radio" name="ability2" id="ability2" value="C">C
+                        <input type="radio" name="ability2" id="ability2" value="D" checked>D
+                        <input type="radio" name="ability2" id="ability2" value="E">E
+                        <br>
+                        @elseif($task->ability2 === 'E')
+                        <input type="radio" name="ability2" id="ability2" value="A">A
+                        <input type="radio" name="ability2" id="ability2" value="B">B
+                        <input type="radio" name="ability2" id="ability2" value="C">C
+                        <input type="radio" name="ability2" id="ability2" value="D">D
+                        <input type="radio" name="ability2" id="ability2" value="E" checked>E
+                        <br>
+                        @else
+                        <input type="radio" name="ability2" id="ability2" value="A">A
+                        <input type="radio" name="ability2" id="ability2" value="B">B
+                        <input type="radio" name="ability2" id="ability2" value="C">C
+                        <input type="radio" name="ability2" id="ability2" value="D">D
+                        <input type="radio" name="ability2" id="ability2" value="E">E
+                        <br>
+                        @endif
                     <label for="my_result3">3.社内ルール・法令の把握と理解</label><br>
-                    {{ $task->ability3 }}
-                    <br>
+                        @if($task->ability3 === 'A')
+                        <input type="radio" name="ability3" id="ability3" value="A" checked>A
+                        <input type="radio" name="ability3" id="ability3" value="B">B
+                        <input type="radio" name="ability3" id="ability3" value="C">C
+                        <input type="radio" name="ability3" id="ability3" value="D">D
+                        <input type="radio" name="ability3" id="ability3" value="E">E
+                        <br>
+                        @elseif($task->ability3 === 'B')
+                        <input type="radio" name="ability3" id="ability3" value="A">A
+                        <input type="radio" name="ability3" id="ability3" value="B" checked>B
+                        <input type="radio" name="ability3" id="ability3" value="C">C
+                        <input type="radio" name="ability3" id="ability3" value="D">D
+                        <input type="radio" name="ability3" id="ability3" value="E">E
+                        <br>
+                        @elseif($task->ability3 === 'C')
+                        <input type="radio" name="ability3" id="ability3" value="A">A
+                        <input type="radio" name="ability3" id="ability3" value="B">B
+                        <input type="radio" name="ability3" id="ability3" value="C" checked>C
+                        <input type="radio" name="ability3" id="ability3" value="D">D
+                        <input type="radio" name="ability3" id="ability3" value="E">E
+                        <br>
+                        @elseif($task->ability3 === 'D')
+                        <input type="radio" name="ability3" id="ability3" value="A">A
+                        <input type="radio" name="ability3" id="ability3" value="B">B
+                        <input type="radio" name="ability3" id="ability3" value="C">C
+                        <input type="radio" name="ability3" id="ability3" value="D" checked>D
+                        <input type="radio" name="ability3" id="ability3" value="E">E
+                        <br>
+                        @elseif($task->ability3 === 'E')
+                        <input type="radio" name="ability3" id="ability3" value="A">A
+                        <input type="radio" name="ability3" id="ability3" value="B">B
+                        <input type="radio" name="ability3" id="ability3" value="C">C
+                        <input type="radio" name="ability3" id="ability3" value="D">D
+                        <input type="radio" name="ability3" id="ability3" value="E" checked>E
+                        <br>
+                        @else
+                        <input type="radio" name="ability3" id="ability3" value="A">A
+                        <input type="radio" name="ability3" id="ability3" value="B">B
+                        <input type="radio" name="ability3" id="ability3" value="C">C
+                        <input type="radio" name="ability3" id="ability3" value="D">D
+                        <input type="radio" name="ability3" id="ability3" value="E">E
+                        <br>
+                        @endif  
                     <label for="my_result4">4.上司との報告・連絡・相談</label><br>
-                    {{ $task->ability4 }}
-                    <br>
+                        @if($task->ability4 === 'A')
+                        <input type="radio" name="ability4" id="ability4" value="A" checked>A
+                        <input type="radio" name="ability4" id="ability4" value="B">B
+                        <input type="radio" name="ability4" id="ability4" value="C">C
+                        <input type="radio" name="ability4" id="ability4" value="D">D
+                        <input type="radio" name="ability4" id="ability4" value="E">E
+                        <br>
+                        @elseif($task->ability4 === 'B')
+                        <input type="radio" name="ability4" id="ability4" value="A">A
+                        <input type="radio" name="ability4" id="ability4" value="B" checked>B
+                        <input type="radio" name="ability4" id="ability4" value="C">C
+                        <input type="radio" name="ability4" id="ability4" value="D">D
+                        <input type="radio" name="ability4" id="ability4" value="E">E
+                        <br>
+                        @elseif($task->ability4 === 'C')
+                        <input type="radio" name="ability4" id="ability4" value="A">A
+                        <input type="radio" name="ability4" id="ability4" value="B">B
+                        <input type="radio" name="ability4" id="ability4" value="C" checked>C
+                        <input type="radio" name="ability4" id="ability4" value="D">D
+                        <input type="radio" name="ability4" id="ability4" value="E">E
+                        <br>
+                        @elseif($task->ability4 === 'D')
+                        <input type="radio" name="ability4" id="ability4" value="A">A
+                        <input type="radio" name="ability4" id="ability4" value="B">B
+                        <input type="radio" name="ability4" id="ability4" value="C">C
+                        <input type="radio" name="ability4" id="ability4" value="D" checked>D
+                        <input type="radio" name="ability4" id="ability4" value="E">E
+                        <br>
+                        @elseif($task->ability4 === 'E')
+                        <input type="radio" name="ability4" id="ability4" value="A">A
+                        <input type="radio" name="ability4" id="ability4" value="B">B
+                        <input type="radio" name="ability4" id="ability4" value="C">C
+                        <input type="radio" name="ability4" id="ability4" value="D">D
+                        <input type="radio" name="ability4" id="ability4" value="E" checked>E
+                        <br>
+                        @else
+                        <input type="radio" name="ability4" id="ability4" value="A">A
+                        <input type="radio" name="ability4" id="ability4" value="B">B
+                        <input type="radio" name="ability4" id="ability4" value="C">C
+                        <input type="radio" name="ability4" id="ability4" value="D">D
+                        <input type="radio" name="ability4" id="ability4" value="E">E
+                        <br>
+                        @endif
                     <label for="my_result5">5.業務内容とのマッチング度</label><br>
-                    {{ $task->ability5 }}
-                    <br>
+                        @if($task->ability5 === 'A')
+                        <input type="radio" name="ability5" id="ability5" value="A" checked>A
+                        <input type="radio" name="ability5" id="ability5" value="B">B
+                        <input type="radio" name="ability5" id="ability5" value="C">C
+                        <input type="radio" name="ability5" id="ability5" value="D">D
+                        <input type="radio" name="ability5" id="ability5" value="E">E
+                        <br>
+                        @elseif($task->ability5 === 'B')
+                        <input type="radio" name="ability5" id="ability5" value="A">A
+                        <input type="radio" name="ability5" id="ability5" value="B" checked>B
+                        <input type="radio" name="ability5" id="ability5" value="C">C
+                        <input type="radio" name="ability5" id="ability5" value="D">D
+                        <input type="radio" name="ability5" id="ability5" value="E">E
+                        <br>
+                        @elseif($task->ability5 === 'C')
+                        <input type="radio" name="ability5" id="ability5" value="A">A
+                        <input type="radio" name="ability5" id="ability5" value="B">B
+                        <input type="radio" name="ability5" id="ability5" value="C" checked>C
+                        <input type="radio" name="ability5" id="ability5" value="D">D
+                        <input type="radio" name="ability5" id="ability5" value="E">E
+                        <br>
+                        @elseif($task->ability5 === 'D')
+                        <input type="radio" name="ability5" id="ability5" value="A">A
+                        <input type="radio" name="ability5" id="ability5" value="B">B
+                        <input type="radio" name="ability5" id="ability5" value="C">C
+                        <input type="radio" name="ability5" id="ability5" value="D" checked>D
+                        <input type="radio" name="ability5" id="ability5" value="E">E
+                        <br>
+                        @elseif($task->ability5 === 'E')
+                        <input type="radio" name="ability5" id="ability5" value="A">A
+                        <input type="radio" name="ability5" id="ability5" value="B">B
+                        <input type="radio" name="ability5" id="ability5" value="C">C
+                        <input type="radio" name="ability5" id="ability5" value="D">D
+                        <input type="radio" name="ability5" id="ability5" value="E" checked>E
+                        <br>
+                        @else
+                        <input type="radio" name="ability5" id="ability5" value="A">A
+                        <input type="radio" name="ability5" id="ability5" value="B">B
+                        <input type="radio" name="ability5" id="ability5" value="C">C
+                        <input type="radio" name="ability5" id="ability5" value="D">D
+                        <input type="radio" name="ability5" id="ability5" value="E">E
+                        <br>
+                        @endif
                 </div>
             </div>
 
@@ -95,17 +342,59 @@
                 <br>
                 <label for="chief_workyears">勤続年数</label>
                     @if($task->chief_workyears == 1)
-                        1年目~2年目
+                    <select name="chief_workyears" id="chief_workyears">
+                    <option value="">選択してください</option>
+                    <option value="1" selected>1年目~2年目</option>
+                    <option value="2">3年目~5年目</option>
+                    <option value="3">6年目~8年目</option>
+                    <option value="4">9年目~10年目</option>
+                    <option value="5">11年目~</option>
+                    </select>
                     @elseif($task->chief_workyears == 2)
-                        3年目~5年目
+                    <select name="chief_workyears" id="chief_workyears">
+                    <option value="">選択してください</option>
+                    <option value="1">1年目~2年目</option>
+                    <option value="2" selected>3年目~5年目</option>
+                    <option value="3">6年目~8年目</option>
+                    <option value="4">9年目~10年目</option>
+                    <option value="5">11年目~</option>
+                    </select>
                     @elseif($task->chief_workyears == 3)
-                        6年目~8年目
+                    <select name="chief_workyears" id="chief_workyears">
+                    <option value="">選択してください</option>
+                    <option value="1">1年目~2年目</option>
+                    <option value="2">3年目~5年目</option>
+                    <option value="3" selected>6年目~8年目</option>
+                    <option value="4">9年目~10年目</option>
+                    <option value="5">11年目~</option>
+                    </select>
                     @elseif($task->chief_workyears == 4)
-                        9年目~10年目
+                    <select name="chief_workyears" id="chief_workyears">
+                    <option value="">選択してください</option>
+                    <option value="1">1年目~2年目</option>
+                    <option value="2">3年目~5年目</option>
+                    <option value="3">6年目~8年目</option>
+                    <option value="4" selected>9年目~10年目</option>
+                    <option value="5">11年目~</option>
+                    </select>
                     @elseif($task->chief_workyears == 5)
-                        11年目~
+                    <select name="chief_workyears" id="chief_workyears">
+                    <option value="">選択してください</option>
+                    <option value="1">1年目~2年目</option>
+                    <option value="2">3年目~5年目</option>
+                    <option value="3">6年目~8年目</option>
+                    <option value="4">9年目~10年目</option>
+                    <option value="5" selected>11年目~</option>
+                    </select>
                     @else
-                        選択されていません
+                    <select name="chief_workyears" id="chief_workyears">
+                    <option value="">選択してください</option>
+                    <option value="1">1年目~2年目</option>
+                    <option value="2">3年目~5年目</option>
+                    <option value="3">6年目~8年目</option>
+                    <option value="4">9年目~10年目</option>
+                    <option value="5">11年目~</option>
+                    </select>
                     @endif
             </div>
             <div class="works">
@@ -125,20 +414,225 @@
                 <div class="result_box">
                     <p>上司評価</p>
                     <label for="chief_result1">1.仕事内容の理解と把握</label><br>
-                    {{ $task->chief_ability1 }}
-                    <br>
-                    <label for="chief_result">2.成果への追求</label><br>
-                    {{ $task->chief_ability2 }}
-                    <br>
-                    <label for="chief_result">3.社内ルール・法令の把握と理解</label><br>
-                    {{ $task->chief_ability3 }}
-                    <br>
-                    <label for="chief_result">4.上司との報告・連絡・相談</label><br>
-                    {{ $task->chief_ability4 }}
-                    <br>
-                    <label for="chief_result">5.業務内容とのマッチング度</label><br>
-                    {{ $task->chief_ability5 }}
-                    <br>
+                    @if($task->chief_ability1 === 'A')
+                        <input type="radio" name="chief_ability1" id="chief_ability1" value="A" checked>A
+                        <input type="radio" name="chief_ability1" id="chief_ability1" value="B">B
+                        <input type="radio" name="chief_ability1" id="chief_ability1" value="C">C
+                        <input type="radio" name="chief_ability1" id="chief_ability1" value="D">D
+                        <input type="radio" name="chief_ability1" id="chief_ability1" value="E">E
+                        <br>
+                        @elseif($task->achief_bility1 === 'B')
+                        <input type="radio" name="chief_ability1" id="chief_ability1" value="A">A
+                        <input type="radio" name="chief_ability1" id="chief_ability1" value="B" checked>B
+                        <input type="radio" name="chief_ability1" id="chief_ability1" value="C">C
+                        <input type="radio" name="chief_ability1" id="chief_ability1" value="D">D
+                        <input type="radio" name="chief_ability1" id="chief_ability1" value="E">E
+                        <br>
+                        @elseif($task->chief_ability1 === 'C')
+                        <input type="radio" name="chief_ability1" id="chief_ability1" value="A">A
+                        <input type="radio" name="chief_ability1" id="chief_ability1" value="B">B
+                        <input type="radio" name="chief_ability1" id="chief_ability1" value="C" checked>C
+                        <input type="radio" name="chief_ability1" id="chief_ability1" value="D">D
+                        <input type="radio" name="chief_ability1" id="chief_ability1" value="E">E
+                        <br>
+                        @elseif($task->chief_ability1 === 'D')
+                        <input type="radio" name="chief_ability1" id="chief_ability1" value="A">A
+                        <input type="radio" name="chief_ability1" id="chief_ability1" value="B">B
+                        <input type="radio" name="chief_ability1" id="chief_ability1" value="C">C
+                        <input type="radio" name="chief_ability1" id="chief_ability1" value="D" checked>D
+                        <input type="radio" name="chief_ability1" id="chief_ability1" value="E">E
+                        <br>
+                        @elseif($task->chief_ability1 === 'E')
+                        <input type="radio" name="chief_ability1" id="chief_ability1" value="A">A
+                        <input type="radio" name="chief_ability1" id="chief_ability1" value="B">B
+                        <input type="radio" name="chief_ability1" id="chief_ability1" value="C">C
+                        <input type="radio" name="chief_ability1" id="chief_ability1" value="D">D
+                        <input type="radio" name="chief_ability1" id="chief_ability1" value="E" checked>E
+                        <br>
+                        @else
+                        <input type="radio" name="chief_ability1" id="chief_ability1" value="A">A
+                        <input type="radio" name="chief_ability1" id="chief_ability1" value="B">B
+                        <input type="radio" name="chief_ability1" id="chief_ability1" value="C">C
+                        <input type="radio" name="chief_ability1" id="chief_ability1" value="D">D
+                        <input type="radio" name="chief_ability1" id="chief_ability1" value="E">E
+                        <br>
+                        @endif
+                    <label for="my_result2">2.成果への追求</label><br>
+                        @if($task->chief_chief_ability2 === 'A')
+                        <input type="radio" name="chief_ability2" id="chief_ability2" value="A" checked>A
+                        <input type="radio" name="chief_ability2" id="chief_ability2" value="B">B
+                        <input type="radio" name="chief_ability2" id="chief_ability2" value="C">C
+                        <input type="radio" name="chief_ability2" id="chief_ability2" value="D">D
+                        <input type="radio" name="chief_ability2" id="chief_ability2" value="E">E
+                        <br>
+                        @elseif($task->chief_chief_ability2 === 'B')
+                        <input type="radio" name="chief_ability2" id="chief_ability2" value="A">A
+                        <input type="radio" name="chief_ability2" id="chief_ability2" value="B" checked>B
+                        <input type="radio" name="chief_ability2" id="chief_ability2" value="C">C
+                        <input type="radio" name="chief_ability2" id="chief_ability2" value="D">D
+                        <input type="radio" name="chief_ability2" id="chief_ability2" value="E">E
+                        <br>
+                        @elseif($task->chief_chief_ability2 === 'C')
+                        <input type="radio" name="chief_ability2" id="chief_ability2" value="A">A
+                        <input type="radio" name="chief_ability2" id="chief_ability2" value="B">B
+                        <input type="radio" name="chief_ability2" id="chief_ability2" value="C" checked>C
+                        <input type="radio" name="chief_ability2" id="chief_ability2" value="D">D
+                        <input type="radio" name="chief_ability2" id="chief_ability2" value="E">E
+                        <br>
+                        @elseif($task->chief_chief_ability2 === 'D')
+                        <input type="radio" name="chief_ability2" id="chief_ability2" value="A">A
+                        <input type="radio" name="chief_ability2" id="chief_ability2" value="B">B
+                        <input type="radio" name="chief_ability2" id="chief_ability2" value="C">C
+                        <input type="radio" name="chief_ability2" id="chief_ability2" value="D" checked>D
+                        <input type="radio" name="chief_ability2" id="chief_ability2" value="E">E
+                        <br>
+                        @elseif($task->chief_chief_ability2 === 'E')
+                        <input type="radio" name="chief_ability2" id="chief_ability2" value="A">A
+                        <input type="radio" name="chief_ability2" id="chief_ability2" value="B">B
+                        <input type="radio" name="chief_ability2" id="chief_ability2" value="C">C
+                        <input type="radio" name="chief_ability2" id="chief_ability2" value="D">D
+                        <input type="radio" name="chief_ability2" id="chief_ability2" value="E" checked>E
+                        <br>
+                        @else
+                        <input type="radio" name="chief_ability2" id="chief_ability2" value="A">A
+                        <input type="radio" name="chief_ability2" id="chief_ability2" value="B">B
+                        <input type="radio" name="chief_ability2" id="chief_ability2" value="C">C
+                        <input type="radio" name="chief_ability2" id="chief_ability2" value="D">D
+                        <input type="radio" name="chief_ability2" id="chief_ability2" value="E">E
+                        <br>
+                        @endif
+                    <label for="my_result3">3.社内ルール・法令の把握と理解</label><br>
+                        @if($task->chief_ability3 === 'A')
+                        <input type="radio" name="chief_ability3" id="chief_ability3" value="A" checked>A
+                        <input type="radio" name="chief_ability3" id="chief_ability3" value="B">B
+                        <input type="radio" name="chief_ability3" id="chief_ability3" value="C">C
+                        <input type="radio" name="chief_ability3" id="chief_ability3" value="D">D
+                        <input type="radio" name="chief_ability3" id="chief_ability3" value="E">E
+                        <br>
+                        @elseif($task->chief_ability3 === 'B')
+                        <input type="radio" name="chief_ability3" id="chief_ability3" value="A">A
+                        <input type="radio" name="chief_ability3" id="chief_ability3" value="B" checked>B
+                        <input type="radio" name="chief_ability3" id="chief_ability3" value="C">C
+                        <input type="radio" name="chief_ability3" id="chief_ability3" value="D">D
+                        <input type="radio" name="chief_ability3" id="chief_ability3" value="E">E
+                        <br>
+                        @elseif($task->chief_ability3 === 'C')
+                        <input type="radio" name="chief_ability3" id="chief_ability3" value="A">A
+                        <input type="radio" name="chief_ability3" id="chief_ability3" value="B">B
+                        <input type="radio" name="chief_ability3" id="chief_ability3" value="C" checked>C
+                        <input type="radio" name="chief_ability3" id="chief_ability3" value="D">D
+                        <input type="radio" name="chief_ability3" id="chief_ability3" value="E">E
+                        <br>
+                        @elseif($task->chief_ability3 === 'D')
+                        <input type="radio" name="chief_ability3" id="chief_ability3" value="A">A
+                        <input type="radio" name="chief_ability3" id="chief_ability3" value="B">B
+                        <input type="radio" name="chief_ability3" id="chief_ability3" value="C">C
+                        <input type="radio" name="chief_ability3" id="chief_ability3" value="D" checked>D
+                        <input type="radio" name="chief_ability3" id="chief_ability3" value="E">E
+                        <br>
+                        @elseif($task->chief_ability3 === 'E')
+                        <input type="radio" name="chief_ability3" id="chief_ability3" value="A">A
+                        <input type="radio" name="chief_ability3" id="chief_ability3" value="B">B
+                        <input type="radio" name="chief_ability3" id="chief_ability3" value="C">C
+                        <input type="radio" name="chief_ability3" id="chief_ability3" value="D">D
+                        <input type="radio" name="chief_ability3" id="chief_ability3" value="E" checked>E
+                        <br>
+                        @else
+                        <input type="radio" name="chief_ability3" id="chief_ability3" value="A">A
+                        <input type="radio" name="chief_ability3" id="chief_ability3" value="B">B
+                        <input type="radio" name="chief_ability3" id="chief_ability3" value="C">C
+                        <input type="radio" name="chief_ability3" id="chief_ability3" value="D">D
+                        <input type="radio" name="chief_ability3" id="chief_ability3" value="E">E
+                        <br>
+                        @endif 
+                    <label for="my_result4">4.上司との報告・連絡・相談</label><br>
+                        @if($task->chief_ability4 === 'A')
+                        <input type="radio" name="chief_ability4" id="chief_ability4" value="A" checked>A
+                        <input type="radio" name="chief_ability4" id="chief_ability4" value="B">B
+                        <input type="radio" name="chief_ability4" id="chief_ability4" value="C">C
+                        <input type="radio" name="chief_ability4" id="chief_ability4" value="D">D
+                        <input type="radio" name="chief_ability4" id="chief_ability4" value="E">E
+                        <br>
+                        @elseif($task->chief_ability4 === 'B')
+                        <input type="radio" name="chief_ability4" id="chief_ability4" value="A">A
+                        <input type="radio" name="chief_ability4" id="chief_ability4" value="B" checked>B
+                        <input type="radio" name="chief_ability4" id="chief_ability4" value="C">C
+                        <input type="radio" name="chief_ability4" id="chief_ability4" value="D">D
+                        <input type="radio" name="chief_ability4" id="chief_ability4" value="E">E
+                        <br>
+                        @elseif($task->chief_ability4 === 'C')
+                        <input type="radio" name="chief_ability4" id="chief_ability4" value="A">A
+                        <input type="radio" name="chief_ability4" id="chief_ability4" value="B">B
+                        <input type="radio" name="chief_ability4" id="chief_ability4" value="C" checked>C
+                        <input type="radio" name="chief_ability4" id="chief_ability4" value="D">D
+                        <input type="radio" name="chief_ability4" id="chief_ability4" value="E">E
+                        <br>
+                        @elseif($task->chief_ability4 === 'D')
+                        <input type="radio" name="chief_ability4" id="chief_ability4" value="A">A
+                        <input type="radio" name="chief_ability4" id="chief_ability4" value="B">B
+                        <input type="radio" name="chief_ability4" id="chief_ability4" value="C">C
+                        <input type="radio" name="chief_ability4" id="chief_ability4" value="D" checked>D
+                        <input type="radio" name="chief_ability4" id="chief_ability4" value="E">E
+                        <br>
+                        @elseif($task->chief_ability4 === 'E')
+                        <input type="radio" name="chief_ability4" id="chief_ability4" value="A">A
+                        <input type="radio" name="chief_ability4" id="chief_ability4" value="B">B
+                        <input type="radio" name="chief_ability4" id="chief_ability4" value="C">C
+                        <input type="radio" name="chief_ability4" id="chief_ability4" value="D">D
+                        <input type="radio" name="chief_ability4" id="chief_ability4" value="E" checked>E
+                        <br>
+                        @else
+                        <input type="radio" name="chief_ability4" id="chief_ability4" value="A">A
+                        <input type="radio" name="chief_ability4" id="chief_ability4" value="B">B
+                        <input type="radio" name="chief_ability4" id="chief_ability4" value="C">C
+                        <input type="radio" name="chief_ability4" id="chief_ability4" value="D">D
+                        <input type="radio" name="chief_ability4" id="chief_ability4" value="E">E
+                        <br>
+                        @endif
+                    <label for="my_result5">5.業務内容とのマッチング度</label><br>
+                        @if($task->chief_ability5 === 'A')
+                        <input type="radio" name="chief_ability5" id="chief_ability5" value="A" checked>A
+                        <input type="radio" name="chief_ability5" id="chief_ability5" value="B">B
+                        <input type="radio" name="chief_ability5" id="chief_ability5" value="C">C
+                        <input type="radio" name="chief_ability5" id="chief_ability5" value="D">D
+                        <input type="radio" name="chief_ability5" id="chief_ability5" value="E">E
+                        <br>
+                        @elseif($task->chief_ability5 === 'B')
+                        <input type="radio" name="chief_ability5" id="chief_ability5" value="A">A
+                        <input type="radio" name="chief_ability5" id="chief_ability5" value="B" checked>B
+                        <input type="radio" name="chief_ability5" id="chief_ability5" value="C">C
+                        <input type="radio" name="chief_ability5" id="chief_ability5" value="D">D
+                        <input type="radio" name="chief_ability5" id="chief_ability5" value="E">E
+                        <br>
+                        @elseif($task->chief_ability5 === 'C')
+                        <input type="radio" name="chief_ability5" id="chief_ability5" value="A">A
+                        <input type="radio" name="chief_ability5" id="chief_ability5" value="B">B
+                        <input type="radio" name="chief_ability5" id="chief_ability5" value="C" checked>C
+                        <input type="radio" name="chief_ability5" id="chief_ability5" value="D">D
+                        <input type="radio" name="chief_ability5" id="chief_ability5" value="E">E
+                        <br>
+                        @elseif($task->chief_ability5 === 'D')
+                        <input type="radio" name="chief_ability5" id="chief_ability5" value="A">A
+                        <input type="radio" name="chief_ability5" id="chief_ability5" value="B">B
+                        <input type="radio" name="chief_ability5" id="chief_ability5" value="C">C
+                        <input type="radio" name="chief_ability5" id="chief_ability5" value="D" checked>D
+                        <input type="radio" name="chief_ability5" id="chief_ability5" value="E">E
+                        <br>
+                        @elseif($task->chief_ability5 === 'E')
+                        <input type="radio" name="chief_ability5" id="chief_ability5" value="A">A
+                        <input type="radio" name="chief_ability5" id="chief_ability5" value="B">B
+                        <input type="radio" name="chief_ability5" id="chief_ability5" value="C">C
+                        <input type="radio" name="chief_ability5" id="chief_ability5" value="D">D
+                        <input type="radio" name="chief_ability5" id="chief_ability5" value="E" checked>E
+                        <br>
+                        @else
+                        <input type="radio" name="chief_ability5" id="chief_ability5" value="A">A
+                        <input type="radio" name="chief_ability5" id="chief_ability5" value="B">B
+                        <input type="radio" name="chief_ability5" id="chief_ability5" value="C">C
+                        <input type="radio" name="chief_ability5" id="chief_ability5" value="D">D
+                        <input type="radio" name="chief_ability5" id="chief_ability5" value="E">E
+                        <br>
+                        @endif
                 </div>
             </div>
 
@@ -150,11 +644,12 @@
                 </div>
             </div>
 
-            <input type="submit" name="btn_submit" value="内容を確認する">
+            <input type="submit" name="btn_submit" value="内容を更新する">
         </form>
     </div>
     @endforeach
 </div>
+
 
 
 

@@ -189,7 +189,7 @@ user_idが等しいものがない場合
     @endforeach
 </div>
 
-    <form action="{{ route('edit',['task'=>$task->user_id],['task'=>$task->time]) }}" method="POST">
+    <form action="{{ route('edit',['task'=>$task->id]) }}" method="POST">
     @csrf
     <input type="hidden" name="id" value="{{ $task->user_id }}">
     <input type="hidden" name="time" value="{{ $task->time }}">    

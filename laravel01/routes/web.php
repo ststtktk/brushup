@@ -31,3 +31,4 @@ Route::post('useradd',[App\Http\Controllers\TaskController::class, 'useradd'])->
 Route::post('/taskadd',[App\Http\Controllers\TaskController::class,'taskadd'])->name('taskadd');
 Route::post('/show',[App\Http\Controllers\TaskController::class,'show'])->name('show');
 Route::post('edit',[App\Http\Controllers\TaskController::class,'edit'])->name('edit');
+Route::post('{task}/update',[App\Http\Controllers\TaskController::class,'update'])->name('update');
