@@ -29,7 +29,7 @@ class TaskController extends Controller
              'email'=>$request->email,
              'password'=>$request->password,
           ]);
-          return redirect('tasks/login');
+          return redirect('home');
      }
 
      /**
@@ -72,7 +72,7 @@ class TaskController extends Controller
                'free'=>$request->free,
                'chief_free'=>$request->chief_free
            ]);
-           return redirect('tasks/login');
+           return redirect('home');
        }
 
            /**

@@ -14,7 +14,7 @@
         <h2>ログインユーザー：<?php $user=Auth::User(); ?>{{ $user->name }}</h2>
     </div>
     <div class="title">
-        <a href="login">ホーム画面</a>
+        <a href="home">ホーム画面</a>
     </div>
 </div>
 
