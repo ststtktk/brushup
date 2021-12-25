@@ -106,6 +106,24 @@ class TaskController extends Controller
                 ]);
                 //}
             }
+
+            /**
+             * タスク編集
+             * 
+             */
+            Public function edit(Request $request)
+            {
+                $user_id = auth()->id();
+
+                $times = $request->time;
+                
+                $task = Task::where('user_id',$request->id)->where('time',$request->time)->get();
+                return view('tasks.edit',[
+                    'tasks'=>$task,
+                    'times'=>$times,
+                ]);
+
+            }
        
             //return redirect('tasks/career');
 }

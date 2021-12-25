@@ -4,53 +4,14 @@
 
 @auth
 
-<!--
-    <div class="access-view">
-    <div class="point">
-        <div class="brushup">
-            <img src="/img/Career.svg" alt="burshupの画像">
-        </div>
-    </div>
-</div>
--->
 
-<div class="search">
-    <form action="{{ route('show') }}" method="POST">
-    @csrf
-        <div class="loginname">
-            <h2>ログインユーザー：<?php $user=Auth::User(); ?>{{ $user->name }}</h2>
-            <input type="hidden" name="id" value="{{ $user->id }}">
-        </div>
-        <h2>タスク編集</h2>
-
-        <div class="title">
-            <a href="login">ホーム画面</a>
-        </div>
-
-        <div class="time">
-            <select name="time" id="">  
-            @foreach($times as $time)
-                <option name="time">{{ $time->time }}</option>
-            @endforeach
-            </select>
-        </div>
-
-        <input type="submit" value="検索" name="search_btn">
-    </form>
-</div>
-
-<!-- 
-user_idが等しいものがない場合
-<p>投稿がありません</p>
- -->
-
-@if(isset($_POST['search_btn']))
 
 <div class="form">
+@csrf
 
-    
     @foreach($tasks as $task)
-    <div class="my_profile">
+    {{ $task->time }}
+        <div class="my_profile">
         <h2>MyProfile</h2>
         <form action="{{ route('taskadd') }}" method="POST">
         {{ csrf_field() }}
@@ -192,14 +153,12 @@ user_idが等しいものがない場合
             <input type="submit" name="btn_submit" value="内容を確認する">
         </form>
     </div>
+    @endforeach
 </div>
-@endforeach
 
 
-@else
-<p>検索して下さい</p>
 
-@endif
+<a href="career">戻る</a>
 
 
 <br>
