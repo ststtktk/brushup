@@ -13,9 +13,11 @@
     {{ $task->time }}
         <div class="my_profile">
         <h2>MyProfile</h2>
-        <form action="update" method="POST">
+        <form action="{{ route('update',['task'=>$task->id]) }}" method="POST">
         {{ csrf_field() }}
             <div class="profile">
+                <label for="id"></label>
+                <input type="hidden" name="id" id="id" value="{{ $task->id }}">
                 <label for="name">氏名</label>
                 <input type="text" name="name" id="name" value="{{ $task->name }}">
                 <br>
@@ -421,7 +423,7 @@
                         <input type="radio" name="chief_ability1" id="chief_ability1" value="D">D
                         <input type="radio" name="chief_ability1" id="chief_ability1" value="E">E
                         <br>
-                        @elseif($task->achief_bility1 === 'B')
+                        @elseif($task->chief_ability1 === 'B')
                         <input type="radio" name="chief_ability1" id="chief_ability1" value="A">A
                         <input type="radio" name="chief_ability1" id="chief_ability1" value="B" checked>B
                         <input type="radio" name="chief_ability1" id="chief_ability1" value="C">C
@@ -457,36 +459,36 @@
                         <input type="radio" name="chief_ability1" id="chief_ability1" value="E">E
                         <br>
                         @endif
-                    <label for="my_result2">2.成果への追求</label><br>
-                        @if($task->chief_chief_ability2 === 'A')
+                    <label for="chief_result2">2.成果への追求</label><br>
+                        @if($task->chief_ability2 === 'A')
                         <input type="radio" name="chief_ability2" id="chief_ability2" value="A" checked>A
                         <input type="radio" name="chief_ability2" id="chief_ability2" value="B">B
                         <input type="radio" name="chief_ability2" id="chief_ability2" value="C">C
                         <input type="radio" name="chief_ability2" id="chief_ability2" value="D">D
                         <input type="radio" name="chief_ability2" id="chief_ability2" value="E">E
                         <br>
-                        @elseif($task->chief_chief_ability2 === 'B')
+                        @elseif($task->chief_ability2 === 'B')
                         <input type="radio" name="chief_ability2" id="chief_ability2" value="A">A
                         <input type="radio" name="chief_ability2" id="chief_ability2" value="B" checked>B
                         <input type="radio" name="chief_ability2" id="chief_ability2" value="C">C
                         <input type="radio" name="chief_ability2" id="chief_ability2" value="D">D
                         <input type="radio" name="chief_ability2" id="chief_ability2" value="E">E
                         <br>
-                        @elseif($task->chief_chief_ability2 === 'C')
+                        @elseif($task->chief_ability2 === 'C')
                         <input type="radio" name="chief_ability2" id="chief_ability2" value="A">A
                         <input type="radio" name="chief_ability2" id="chief_ability2" value="B">B
                         <input type="radio" name="chief_ability2" id="chief_ability2" value="C" checked>C
                         <input type="radio" name="chief_ability2" id="chief_ability2" value="D">D
                         <input type="radio" name="chief_ability2" id="chief_ability2" value="E">E
                         <br>
-                        @elseif($task->chief_chief_ability2 === 'D')
+                        @elseif($task->chief_ability2 === 'D')
                         <input type="radio" name="chief_ability2" id="chief_ability2" value="A">A
                         <input type="radio" name="chief_ability2" id="chief_ability2" value="B">B
                         <input type="radio" name="chief_ability2" id="chief_ability2" value="C">C
                         <input type="radio" name="chief_ability2" id="chief_ability2" value="D" checked>D
                         <input type="radio" name="chief_ability2" id="chief_ability2" value="E">E
                         <br>
-                        @elseif($task->chief_chief_ability2 === 'E')
+                        @elseif($task->chief_ability2 === 'E')
                         <input type="radio" name="chief_ability2" id="chief_ability2" value="A">A
                         <input type="radio" name="chief_ability2" id="chief_ability2" value="B">B
                         <input type="radio" name="chief_ability2" id="chief_ability2" value="C">C
@@ -501,7 +503,7 @@
                         <input type="radio" name="chief_ability2" id="chief_ability2" value="E">E
                         <br>
                         @endif
-                    <label for="my_result3">3.社内ルール・法令の把握と理解</label><br>
+                    <label for="chief_result3">3.社内ルール・法令の把握と理解</label><br>
                         @if($task->chief_ability3 === 'A')
                         <input type="radio" name="chief_ability3" id="chief_ability3" value="A" checked>A
                         <input type="radio" name="chief_ability3" id="chief_ability3" value="B">B
@@ -545,7 +547,7 @@
                         <input type="radio" name="chief_ability3" id="chief_ability3" value="E">E
                         <br>
                         @endif 
-                    <label for="my_result4">4.上司との報告・連絡・相談</label><br>
+                    <label for="chief_result4">4.上司との報告・連絡・相談</label><br>
                         @if($task->chief_ability4 === 'A')
                         <input type="radio" name="chief_ability4" id="chief_ability4" value="A" checked>A
                         <input type="radio" name="chief_ability4" id="chief_ability4" value="B">B
@@ -589,7 +591,7 @@
                         <input type="radio" name="chief_ability4" id="chief_ability4" value="E">E
                         <br>
                         @endif
-                    <label for="my_result5">5.業務内容とのマッチング度</label><br>
+                    <label for="chief_result5">5.業務内容とのマッチング度</label><br>
                         @if($task->chief_ability5 === 'A')
                         <input type="radio" name="chief_ability5" id="chief_ability5" value="A" checked>A
                         <input type="radio" name="chief_ability5" id="chief_ability5" value="B">B
