@@ -23,7 +23,7 @@
         </div>
 
         <div class="title">
-            <a href="home">ホーム画面</a>
+            <a href="home">一覧画面</a>
         </div>
 
         <div class="time">

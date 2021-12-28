@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 use App\Models\Task;
+use App\Models\Team;
 
 class TaskController extends Controller
 {
@@ -151,5 +152,55 @@ class TaskController extends Controller
 
                 return redirect('career');
             }
-            //return redirect('tasks/career');
+
+            /**
+             * メンバー登録
+             * 
+             */
+            Public function team()
+            {
+                $userid = auth()->id();
+
+                $teams = Team::where('user_id',$userid)->get();
+                return view('tasks.team',[
+                    'teams' => $teams,
+                ]);
+            }
+
+            /**
+             * メンバー登録画面
+             * 
+             */
+            Public function menber(Request $request)
+            {
+                $userid = $request->user_id;
+                $teams = Team::where('user_id',$userid)->get();
+                return view('tasks.teamadd',[
+                    'teams' => $teams,
+                ]);
+
+            }
+
+
+            /**
+             * メンバー変更
+             */
+
+            Public function upload(Request $request)
+            {
+                Team::where('user_id',$request->user_id)
+                ->update([
+                    'team_menber1'=>$request->team_menber1,
+                    'team_menber2'=>$request->team_menber2,
+                    'team_menber3'=>$request->team_menber3,
+                    'team_menber4'=>$request->team_menber4,
+                    'team_menber5'=>$request->team_menber5,
+                    'team_menber6'=>$request->team_menber6,
+                ]);
+                return redirect('team');
+            }
+
+
+
+
 }

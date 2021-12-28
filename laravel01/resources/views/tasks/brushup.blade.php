@@ -14,12 +14,11 @@
         <h2>ログインユーザー：<?php $user=Auth::User(); ?>{{ $user->name }}</h2>
     </div>
     <div class="title">
-        <a href="home">ホーム画面</a>
+        <a href="home">タスク作成画面</a>
     </div>
 </div>
 
 <div class="form">
-
     <div class="my_profile">
         <h2>MyProfile</h2>
         <form action="{{ route('taskadd') }}" method="POST">
@@ -28,7 +27,6 @@
                 <label for="time">作成日</label>
                 <input type="month" name="time">
             </div>
-
             <div class="profile">
                 <input type="hidden" name="user_id" value="<?php $user = Auth::user(); ?>{{ $user->id }}">
                 <label for="name">氏名</label>
@@ -51,7 +49,6 @@
                 <p>仕事内容</p>
                 <textarea name="task" cols="70" rows="5"></textarea>
             </div>
-
             <div class="result">
                 <p>評価</p>
                 <ul>
@@ -100,7 +97,6 @@
                     <br>
                 </div>
             </div>
-
             <div class="report">
                 <p>所見欄(思ったこと・感じたことを自由に記入して下さい)</p>
                 <div class="report_box">
@@ -108,11 +104,7 @@
                     <textarea name="free" id="free" cols="50" rows="5"></textarea>
                 </div>
             </div>
-
-            <!--<input type="submit" name="btn_submit" value="内容を確認する">
-        </form>-->
     </div>
-    
     <div class="chief_profile">
         <h2>ChiefProfile</h2>
         <!--<form action="{{ route('taskadd') }}" method="post">-->
@@ -137,7 +129,6 @@
                 <p>仕事内容</p>
                 <textarea name="works" cols="70" rows="5">入力の必要はありません</textarea>
             </div>
-
             <div class="result">
                 <p>評価</p>
                 <ul>
@@ -186,7 +177,6 @@
                     <br>
                 </div>
             </div>
-
             <div class="report">
                 <p>所見欄(思ったこと・感じたことを自由に記入して下さい)</p>
                 <div class="report_box">
@@ -198,10 +188,8 @@
         </form>
     </div>
 </div>
-
 <br>
 <br>
 <br>
 <br>
-
 @endsection
