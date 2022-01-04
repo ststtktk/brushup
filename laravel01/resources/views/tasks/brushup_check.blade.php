@@ -2,13 +2,27 @@
 
 @section('content')
 
-@auth
+<div class="access-view">
+    <!--
+    <div class="point">
+        <div class="brushup">
+            <img src="/img/Brush up.svg" alt="burshupの画像">
+        </div>
+    </div>
+    -->
+    <div class="loginname">
+        <h2>ログインユーザー：<?php $user=Auth::User(); ?>{{ $user->name }}</h2>
+    </div>
+    <div class="title">
+        <a href="home">タスク作成画面</a>
+    </div>
+</div>
 
-
-@foreach($tasks as $task)
-<p>作成日:{{ $task->time }}</p>
 <div class="form">
 @csrf
+
+    @foreach($tasks as $task)
+    {{ $task->time }}
         <div class="my_profile">
         <h2>MyProfile</h2>
         <form action="{{ route('update',['task'=>$task->id]) }}" method="POST">

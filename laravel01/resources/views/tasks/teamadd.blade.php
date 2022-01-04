@@ -18,9 +18,8 @@
     </div>
 </div>
 
+<label for="main_name">本人:{{ $user->name }}</label><br>
 <div class="form">
-    <label for="main_name">本人</label><br>
-    {{ $user->name }}
         <div class="teams">
         <h2>Team Menber 編集</h2>
         @foreach($teams as $team)
@@ -32,17 +31,17 @@
                 <tr>
                     @if($team->team_menber1 == "")
                         <td><label for="team_menber1">メンバー1</label></td>
-                        <td>メンバーがいません</td>
+                        <td><input type="text" value="メンバーがいません" name="team_menber1" id="team_menber1"></td>
                     @else
                         <td><label for="team_menber1">メンバー1</label></td>                        
-                        <td><input type="text" value="{{$team->team_menber1}}" name="team_menber1"></td>
+                        <td><input type="text" value="{{$team->team_menber1}}" name="team_menber1" id="team_menber1"></td>
                     @endif
                     
                 </tr>
                 <tr>
                     @if($team->team_menber2 == "")
                         <td><label for="team_menber2">メンバー2</label></td>
-                        <td>メンバーがいません</td>
+                        <td><input type="text" value="メンバーがいません" name="team_menber2"></td>
                     @else
                         <td><label for="team_menber2">メンバー2</label></td>
                         <td><input type="text" value="{{$team->team_menber2}}" name="team_menber2"></td>                        
@@ -51,7 +50,7 @@
                 <tr>
                     @if($team->team_menber3 == "")
                         <td><label for="team_menber3">メンバー3</label></td>
-                        <td>メンバーがいません</td>
+                        <td><input type="text" value="メンバーがいません" name="team_menber3"></td>
                     @else
                         <td><label for="team_menber3">メンバー3</label></td>
                         <td><input type="text" value="{{$team->team_menber3}}" name="team_menber3"></td>                        
@@ -60,7 +59,7 @@
                 <tr>
                     @if($team->team_menber4 == "")
                         <td><label for="team_menber4">メンバー4</label></td>
-                        <td>メンバーがいません</td>
+                        <td><input type="text" value="メンバーがいません" name="team_menber4"></td>
                     @else
                         <td><label for="team_menber4">メンバー4</label></td>
                         <td><input type="text" value="{{$team->team_menber4}}" name="team_menber4"></td>                        
@@ -69,7 +68,7 @@
                 <tr>
                     @if($team->team_menber5 == "")
                         <td><label for="team_menber5">メンバー5</label></td>
-                        <td>メンバーがいません</td>
+                        <td><input type="text" value="メンバーがいません" name="team_menber5"></td>
                     @else
                         <td><label for="team_menber5">メンバー5</label></td>
                         <td><input type="text" value="{{$team->team_menber5}}" name="team_menber5"></td>                        
@@ -78,7 +77,7 @@
                 <tr>
                     @if($team->team_menber6 == "")
                         <td><label for="team_menber6">メンバー6</label></td>
-                        <td>メンバーがいません</td>
+                        <td><input type="text" value="メンバーがいません" name="team_menber6"></td>
                     @else
                         <td><label for="team_menber6">メンバー6</label></td>                        
                         <td><input type="text" value="{{$team->team_menber6}}" name="team_menber6"></td>

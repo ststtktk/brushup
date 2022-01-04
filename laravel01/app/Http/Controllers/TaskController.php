@@ -43,6 +43,15 @@ class TaskController extends Controller
           return redirect('/');
       }
 
+
+      /**
+       * タスク確認
+       */
+      Public function taskcheck()
+      {
+
+      }
+
       /**
        * タスク作成
        * 

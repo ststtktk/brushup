@@ -14,7 +14,7 @@
         <h2>ログインユーザー：<?php $user=Auth::User(); ?>{{ $user->name }}</h2>
     </div>
     <div class="title">
-        <a href="home">タスク作成画面</a>
+        <a href="home">ホーム</a>
     </div>
 </div>
 
@@ -108,6 +108,10 @@
     <div class="chief_profile">
         <h2>ChiefProfile</h2>
         <!--<form action="{{ route('taskadd') }}" method="post">-->
+            <div class="time">
+                <label for="time">作成日</label>
+                <input type="month" name="time">
+            </div>
             <div class="profile">
                 <label for="chief_name">上司氏名</label>
                 <input type="text" name="chief_name" id="chief_name" value="">
@@ -127,7 +131,7 @@
             </div>
             <div class="works">
                 <p>仕事内容</p>
-                <textarea name="works" cols="70" rows="5">入力の必要はありません</textarea>
+                <p>入力の必要はありません</p>
             </div>
             <div class="result">
                 <p>評価</p>

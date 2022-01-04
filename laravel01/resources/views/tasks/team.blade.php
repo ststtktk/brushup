@@ -20,10 +20,9 @@
     </div>
 </div>
 
-<div class="form">
-
-    <label for="main_name">本人</label><br>
-    {{ $user->name }}
+<label for="main_name">本人:{{ $user->name }}</label><br>
+    
+<div class="form">    
         <div class="teams">
         <h2>Team Menber</h2>
             @foreach($teams as $team)
@@ -89,7 +88,7 @@
             
         
 
-        <form action="{{ route('menber',['user_id'=>$team->user_id]) }}" method="POST">
+        <form action="{{ route('menber',['team'=>$team->user_id]) }}" method="POST">
         {{ csrf_field() }}
             <input type="hidden" name="user_id" value="{{ $team->user_id }}">
             <input type="submit" value="編集する">

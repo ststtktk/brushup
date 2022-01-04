@@ -32,9 +32,8 @@
                 <option name="time">{{ $time->time }}</option>
             @endforeach
             </select>
+            <input type="submit" value="検索" name="search_btn">
         </div>
-
-        <input type="submit" value="検索" name="search_btn">
     </form>
 </div>
 
@@ -45,10 +44,9 @@ user_idが等しいものがない場合
 
 @if(isset($_POST['search_btn']))
 
-<div class="form">
-    
-    @foreach($tasks as $task)
-    {{ $task->time }}
+@foreach($tasks as $task)
+    <p>作成日:{{ $task->time }}</p>
+    <div class="form">
         <div class="my_profile">
             <h2>MyProfile</h2>
             {{ csrf_field() }}

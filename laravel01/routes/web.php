@@ -34,4 +34,4 @@ Route::post('/edit',[App\Http\Controllers\TaskController::class,'edit'])->name('
 Route::post('{task}/update',[App\Http\Controllers\TaskController::class,'update'])->name('update');
 Route::get('/team',[App\Http\Controllers\TaskController::class,'team'])->name('team');
 Route::post('/menber',[App\Http\Controllers\TaskController::class,'menber'])->name('menber');
-Route::post('/upload/{team}',[App\Http\Controllers\TaskController::class,'upload'])->name('upload');
+Route::post('{team}/upload',[App\Http\Controllers\TaskController::class,'upload'])->name('upload');
