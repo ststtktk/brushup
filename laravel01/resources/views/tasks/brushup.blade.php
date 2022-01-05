@@ -47,7 +47,7 @@
             </div>
             <div class="task">
                 <p>仕事内容</p>
-                <textarea name="task" cols="70" rows="5"></textarea>
+                <textarea name="task" cols="50" rows="5"></textarea>
             </div>
             <div class="result">
                 <p>評価</p>

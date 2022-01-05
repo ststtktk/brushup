@@ -1,6 +1,4 @@
-@charset "urf-8"; 
-
-body {
+@charset "urf-8"; body {
     min-width: 1076px;
     background-color: #dddada;
 }
@@ -162,16 +160,26 @@ body {
 }
 
 .form {
-    display: inline-flex;
-    width: 100%;
+    display: flex;
+    max-width: 100%;
+    width: 1000px;
+    font-size: large;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.form label {
 }
 
 .form .my_profile {
-    margin-right: 10px;
-    margin-left: 10px;
+    margin-right: 85px;
 }
 
 .form .chief_profile {
+    margin-left: 85px;
+}
+
+.form .chief_profile .result {
 }
 
 .form .report {
@@ -187,4 +195,13 @@ body {
 
 .form .works textarea {
     width: 60%;
+}
+
+.edit{
+    text-align: center;
+    margin: 30px 0;
+}
+
+.chart {
+    margin-top: 70px;
 }
