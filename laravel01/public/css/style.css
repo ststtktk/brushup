@@ -205,3 +205,23 @@
 .chart {
     margin-top: 70px;
 }
+
+.table {
+    width: 1500px;
+    max-width: 100%;
+    margin: 60px auto;
+    font-size: large;
+}
+.table table tr th {
+    border: solid 1px black;
+}
+
+.table table tr td {
+    border: solid 1px black;
+}
+
+.createday{
+    font-size: x-large;
+    text-align: center;
+    margin: 20px;
+}

@@ -4,16 +4,6 @@
 
 @auth
 
-<!--
-    <div class="access-view">
-    <div class="point">
-        <div class="brushup">
-            <img src="/img/Career.svg" alt="burshupの画像">
-        </div>
-    </div>
-</div>
--->
-
 <div class="search">
     <form action="{{ route('show') }}" method="POST">
     @csrf
@@ -23,7 +13,7 @@
         </div>
 
         <div class="title">
-            <a href="home">一覧画面</a>
+            <a href="home">ホーム画面</a>
         </div>
 
         <div class="time">
@@ -45,7 +35,8 @@ user_idが等しいものがない場合
 @if(isset($_POST['search_btn']))
 
 @foreach($tasks as $task)
-    <p>作成日:{{ $task->time }}</p>
+    <p class="createday">作成日:{{ $task->time }}</p>
+    
     <div class="form">
         <div class="my_profile">
             <h2>MyProfile</h2>
@@ -179,12 +170,51 @@ user_idが等しいものがない場合
                     {{ $task->chief_free }}
                 </div>
             </div>        
-        </div>  
+         
+        </div> 
+    </div>
+
+    <form action="{{ route('edit',['task'=>$task->id]) }}" method="POST" class="edit">
+        @csrf
+        <input type="hidden" name="id" value="{{ $task->user_id }}">
+        <input type="hidden" name="time" value="{{ $task->time }}">    
+            <input type="submit" value="内容を編集する" name="btn_submit">
+    </form>
+
+    <div class="table">
+        <table border="1">     
+            <tr>
+                <th>名前</th>
+                <th>作成年月</th>
+                <th>1.仕事内容の理解と把握</th>
+                <th>2.成果への追求</th>
+                <th>3.社内ルール・法令の把握と理解</th>
+                <th>4.上司との報告・連絡・相談</th>
+                <th>5.業務内容とのマッチング度</th>
+            </tr>
+            @foreach($times as $task)  
+            <tr align="center">
+                <td width="10%">{{ $task->name }}</td>
+                <td width="10%">{{ $task->time }}</td>
+                <td width="15%">{{ $task->ability1 }}</td>
+                <td width="15%">{{ $task->ability2 }}</td>
+                <td width="15%">{{ $task->ability3 }}</td>
+                <td width="15%">{{ $task->ability4 }}</td>
+                <td width="15%">{{ $task->ability5 }}</td>
+            </tr>
+            <tr align="center">
+                <td>{{ $task->chief_name }}</td>
+                <td>{{ $task->time }}</td>
+                <td>{{ $task->chief_ability1 }}</td>
+                <td>{{ $task->chief_ability2 }}</td>
+                <td>{{ $task->chief_ability3 }}</td>
+                <td>{{ $task->chief_ability4 }}</td>
+                <td>{{ $task->chief_ability5 }}</td>
+            </tr>
+            @endforeach
+        </table>
     </div>
     
-
-
-
     <div class="chart">
         <div class="mychart">
             <canvas id="chart_cv"></canvas>
@@ -234,14 +264,7 @@ user_idが等しいものがない場合
 
         </div>
     </div>
-@endforeach
-
-    <form action="{{ route('edit',['task'=>$task->id]) }}" method="POST" class="edit">
-    @csrf
-    <input type="hidden" name="id" value="{{ $task->user_id }}">
-    <input type="hidden" name="time" value="{{ $task->time }}">    
-        <input type="submit" value="内容を編集する" name="btn_submit">
-    </form>
+    @endforeach
 
 @else
 <p>検索して下さい</p>

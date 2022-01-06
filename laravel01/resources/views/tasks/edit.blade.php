@@ -6,7 +6,7 @@
 
 
 @foreach($tasks as $task)
-<p>作成日:{{ $task->time }}</p>
+<p class="createday">作成日:{{ $task->time }}</p>
 <div class="form">
 @csrf
         <div class="my_profile">
@@ -81,7 +81,7 @@
             </div>
             <div class="task">
                 <p>仕事内容</p>
-                <textarea name="task" cols="70" rows="5">{{ $task->task }}</textarea>
+                <textarea name="task" cols="50" rows="5">{{ $task->task }}</textarea>
             </div>
 
             <div class="result">
@@ -397,11 +397,10 @@
                     </select>
                     @endif
             </div>
-            <div class="works">
+            <div class="task">
                 <p>仕事内容</p>
-                <textarea name="works" cols="70" rows="5">入力の必要はありません</textarea>
+                <textarea name="task" cols="50" rows="5">入力の必要はありません</textarea>
             </div>
-
             <div class="result">
                 <p>評価</p>
                 <ul>

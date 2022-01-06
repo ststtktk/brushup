@@ -30,7 +30,7 @@
             <div class="profile">
                 <input type="hidden" name="user_id" value="<?php $user = Auth::user(); ?>{{ $user->id }}">
                 <label for="name">氏名</label>
-                <input type="text" name="name" id="name" value="">
+                <input type="text" name="name" id="name" value="{{ $user->name }}">
                 <br>
                 <label for="class">部署</label>
                 <input type="text" name="class" id="class" value="">
@@ -107,10 +107,8 @@
     </div>
     <div class="chief_profile">
         <h2>ChiefProfile</h2>
-        <!--<form action="{{ route('taskadd') }}" method="post">-->
             <div class="time">
                 <label for="time">作成日</label>
-                <input type="month" name="time">
             </div>
             <div class="profile">
                 <label for="chief_name">上司氏名</label>
@@ -129,9 +127,9 @@
                     <option value="5">11年目~</option>
                 </select>
             </div>
-            <div class="works">
+            <div class="task">
                 <p>仕事内容</p>
-                <p>入力の必要はありません</p>
+                <textarea name="task" cols="50" rows="5" value="入力の必要はありません"></textarea>
             </div>
             <div class="result">
                 <p>評価</p>
