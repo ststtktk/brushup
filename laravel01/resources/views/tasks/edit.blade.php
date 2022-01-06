@@ -319,7 +319,7 @@
             </div>
 
             <div class="report">
-                <p>所見欄(思ったこと・感じたことを自由に記入して下さい)</p>
+                <p>所見欄</p>
                 <div class="report_box">
                     <label for="free">本人記入欄</label>
                     <textarea name="free" id="free" cols="50" rows="5">{{ $task->free }}</textarea>
@@ -636,7 +636,7 @@
             </div>
 
             <div class="report">
-                <p>所見欄(思ったこと・感じたことを自由に記入して下さい)</p>
+                <p>所見欄</p>
                 <div class="report_box">
                     <label for="chief_free">上司記入欄</label>
                     <textarea name="chief_free" id="chief_free" cols="50" rows="5">{{ $task->chief_free }}</textarea>

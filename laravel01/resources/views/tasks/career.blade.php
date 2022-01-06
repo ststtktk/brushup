@@ -18,8 +18,8 @@
 
         <div class="time">
             <select name="time" id="">  
-            @foreach($times as $time)
-                <option name="time">{{ $time->time }}</option>
+            @foreach($tasks as $task)
+                <option name="time">{{ $task->time }}</option>
             @endforeach
             </select>
             <input type="submit" value="検索" name="search_btn">
@@ -36,7 +36,6 @@ user_idが等しいものがない場合
 
 @foreach($tasks as $task)
     <p class="createday">作成日:{{ $task->time }}</p>
-    
     <div class="form">
         <div class="my_profile">
             <h2>MyProfile</h2>
@@ -96,9 +95,8 @@ user_idが等しいものがない場合
                 </div>
             </div>
             <div class="report">
-                <p>所見欄(思ったこと・感じたことを自由に記入して下さい)</p>
+                <p>所見欄</p>
                 <div class="report_box">
-                    <label for="free">記入欄</label>
                     {{ $task->free }}
                 </div>
             </div>
@@ -164,9 +162,8 @@ user_idが等しいものがない場合
             </div>
 
             <div class="report">
-                <p>所見欄(思ったこと・感じたことを自由に記入して下さい)</p>
+                <p>所見欄</p>
                 <div class="report_box">
-                    <label for="chief_free">記入欄</label>
                     {{ $task->chief_free }}
                 </div>
             </div>        
@@ -178,7 +175,7 @@ user_idが等しいものがない場合
         @csrf
         <input type="hidden" name="id" value="{{ $task->user_id }}">
         <input type="hidden" name="time" value="{{ $task->time }}">    
-            <input type="submit" value="内容を編集する" name="btn_submit">
+        <input type="submit" value="内容を編集する" name="btn_submit">
     </form>
 
     <div class="table">

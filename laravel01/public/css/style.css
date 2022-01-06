@@ -161,11 +161,9 @@
 
 .form {
     display: flex;
-    max-width: 100%;
-    width: 1000px;
+    width: 1007px;
+    margin: 20px auto;
     font-size: large;
-    margin-right: auto;
-    margin-left: auto;
 }
 
 .form label {
@@ -176,13 +174,13 @@
 }
 
 .form .chief_profile {
-    margin-left: 85px;
 }
 
 .form .chief_profile .result {
 }
 
-.form .report {
+.form .report p {
+    margin-bottom: 0;
 }
 
 .form .report .report_box {
@@ -197,7 +195,7 @@
     width: 60%;
 }
 
-.edit{
+.edit {
     text-align: center;
     margin: 30px 0;
 }
@@ -212,6 +210,7 @@
     margin: 60px auto;
     font-size: large;
 }
+
 .table table tr th {
     border: solid 1px black;
 }
@@ -220,8 +219,44 @@
     border: solid 1px black;
 }
 
-.createday{
+.createday {
     font-size: x-large;
     text-align: center;
     margin: 20px;
+}
+
+.menber {
+    margin: 20px auto;
+    width: 555px;
+    max-width: 100%;
+    display: flex;
+}
+
+.menber h2 {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.menber .menberadd {
+    margin-right: 20px;
+}
+
+.menber .menberadd p {
+    margin: 0;
+}
+
+.menber .menberadd form {
+    text-align: center;
+}
+
+.menber .menberchange {
+    margin-right: 20px;
+}
+
+.menber .menberchange p {
+    margin: 0;
+}
+
+.menber .menberchange form {
+    text-align: center;
 }

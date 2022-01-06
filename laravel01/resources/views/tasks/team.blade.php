@@ -5,13 +5,6 @@
 @auth
 
 <div class="access-view">
-    <!--
-    <div class="point">
-        <div class="brushup">
-            <img src="/img/Brush up.svg" alt="burshupの画像">
-        </div>
-    </div>
-    -->
     <div class="loginname">
         <h2>ログインユーザー：<?php $user=Auth::User(); ?>{{ $user->name }}</h2>
     </div>
@@ -20,84 +13,132 @@
     </div>
 </div>
 
-<label for="main_name">本人:{{ $user->name }}</label><br>
-    
-<div class="form">    
-        <div class="teams">
-        <h2>Team Menber</h2>
+<div class="menber">
+    <div class="menberadd">
+        <h2>メンバー追加</h2>
+        <form action="{{ route('menberadd') }}" method="POST">
+            @csrf
+            <label for="user_id"></label>
+            <input type="hidden" id="user_id" name="user_id" value="{{$user->id}}">
+            <label for="main_name"></label>
+            <input type="hidden" id="main_name" name="main_name" value="{{$user->name}}">
+            <div class="menber1">
+                <p>メンバー1</p>
+                <input type="text" id="team_menber1" name="team_menber1" placeholder="氏名">
+                <input type="email" id="email_menber1" name="email_menber1" placeholder="メールアドレス">
+            </div>
+            <div class="menber2">
+                <p>メンバー2</p>
+                <input type="text" id="team_menber2" name="team_menber2" placeholder="氏名">
+                <input type="email" id="email_menber2" name="email_menber2" placeholder="メールアドレス">
+            </div>
+            <div class="menber3">
+                <p>メンバー3</p>
+                <input type="text" id="team_menber3" name="team_menber3" placeholder="氏名">
+                <input type="email" id="email_menber3" name="email_menber3" placeholder="メールアドレス"> 
+            </div>
+            <div class="menber4">
+                <p>メンバー4</p>
+                <input type="text" id="team_menber4" name="team_menber4" placeholder="氏名">
+                <input type="email" id="email_menber4" name="email_menber4" placeholder="メールアドレス">
+            </div>
+            <div class="menber5">
+                <p>メンバー5</p>
+                <input type="text" id="team_menber5" name="team_menber5" placeholder="氏名">
+                <input type="email" id="email_menber5" name="email_menber5" placeholder="メールアドレス">
+            </div>
+            <div class="menber6">
+                <p>メンバー6</p>
+                <input type="text" id="team_menber6" name="team_menber6" placeholder="氏名">
+                <input type="email" id="email_menber6" name="email_menber6" placeholder="メールアドレス">
+            </div>
+            <input type="submit" value="登録する">    
+        </form> 
+    </div>
+
+    <div class="menberchange">
+        <h2>メンバー変更</h2>
+        <div class="formchange">    
             @foreach($teams as $team)
-            <p hidden>{{ $team->user_id }}</p>
-            <div class="menber">
-            <table>
-                <tr>
+            <form action="{{ route('upload',['team'=>$team->id]) }}" method="POST">
+                @csrf
+                <input type="hidden" id="id" name="id" value="{{$team->id}}">
+                <label for="user_id"></label>
+                <input type="hidden" id="user_id" name="user_id" value="{{$user->id}}">
+                <label for="main_name"></label>
+                <input type="hidden" id="main_name" name="main_name" value="{{$user->name}}">
+                <div class="menber1">
                     @if($team->team_menber1 == "")
-                        <td><label for="team_menber1">メンバー1</label></td>
-                        <td>メンバーがいません</td>
+                        <p>メンバー1</p>
+                        <input type="text" id="team_menber1" name="team_menber1" value="メンバーがいません">
+                        <input type="email" id="email_menber1" name="email_menber1" value="">
                     @else
-                        <td><label for="team_menber1">メンバー1</label></td>                        
-                        <td>{{$team->team_menber1}}</td>
+                        <p>メンバー1</p>                     
+                        <input type="text" id="team_menber1" name="team_menber1" value="{{$team->team_menber1}}">
+                        <input type="email" id="email_menber1" name="email_menber1" value="{{$team->email_menber1}}">
                     @endif
-                </tr>
-                <tr>
+                </div>
+                <div class="menber2">
                     @if($team->team_menber2 == "")
-                        <td><label for="team_menber2">メンバー2</label></td>
-                        <td>メンバーがいません</td>
+                        <p>メンバー2</p>
+                        <input type="text" id="team_menber2" name="team_menber2" value="メンバーがいません">
+                        <input type="email" id="email_menber2" name="email_menber2" value="">
                     @else
-                        <td><label for="team_menber2">メンバー2</label></td>
-                        <td>{{$team->team_menber2}}</td>                        
+                        <p>メンバー2</p>                     
+                        <input type="text" id="team_menber2" name="team_menber2" value="{{$team->team_menber2}}">
+                        <input type="email" id="email_menber2" name="email_menber2" value="{{$team->email_menber2}}">
                     @endif
-                </tr>
-                <tr>
+                </div>
+                <div class="menber3">
                     @if($team->team_menber3 == "")
-                        <td><label for="team_menber3">メンバー3</label></td>
-                        <td>メンバーがいません</td>
+                        <p>メンバー3</p>
+                        <input type="text" id="team_menber3" name="team_menber3" value="メンバーがいません">
+                        <input type="email" id="email_menber3" name="email_menber3" value="">
                     @else
-                        <td><label for="team_menber3">メンバー3</label></td>
-                        <td>{{$team->team_menber3}}</td>                        
+                        <p>メンバー3</p>
+                        <input type="text" id="team_menber3" name="team_menber3" value="{{$team->team_menber3}}">
+                        <input type="email" id="email_menber3" name="email_menber3" value="{{$team->email_menber3}}">
                     @endif
-                </tr>
-                <tr>
+                </div>
+                <div class="menber4">
                     @if($team->team_menber4 == "")
-                        <td><label for="team_menber4">メンバー4</label></td>
-                        <td>メンバーがいません</td>
+                        <p>メンバー4</p>
+                        <input type="text" id="team_menber4" name="team_menber4" value="メンバーがいません">
+                        <input type="email" id="email_menber4" name="email_menber4" value="">
                     @else
-                        <td><label for="team_menber4">メンバー4</label></td>
-                        <td>{{$team->team_menber4}}</td>                        
+                        <p>メンバー4</p>                 
+                        <input type="text" id="team_menber4" name="team_menber4" value="{{$team->team_menber4}}">
+                        <input type="email" id="email_menber4" name="email_menber4" value="{{$team->email_menber4}}">
                     @endif
-                </tr>
-                <tr>
+                </div>
+                <div class="menber5">
                     @if($team->team_menber5 == "")
-                        <td><label for="team_menber5">メンバー5</label></td>
-                        <td>メンバーがいません</td>
+                        <p>メンバー5</p>
+                        <input type="text" id="team_menber5" name="team_menber5" value="メンバーがいません">
+                        <input type="email" id="email_menber5" name="email_menber5" value="">
                     @else
-                        <td><label for="team_menber5">メンバー5</label></td>
-                        <td>{{$team->team_menber5}}</td>                        
+                        <p>メンバー5</p>                     
+                        <input type="text" id="team_menber5" name="team_menber5" value="{{$team->team_menber5}}">
+                        <input type="email" id="email_menber5" name="email_menber5" value="{{$team->email_menber5}}">
                     @endif
-                </tr>
-                <tr>
+                </div>
+                <div class="menber6">
                     @if($team->team_menber6 == "")
-                        <td><label for="team_menber6">メンバー6</label></td>
-                        <td>メンバーがいません</td>
+                        <p>メンバー6</p>
+                        <input type="text" id="team_menber6" name="team_menber6" value="メンバーがいません">
+                        <input type="email" id="email_menber6" name="email_menber6" value="">
                     @else
-                        <td><label for="team_menber6">メンバー6</label></td>                        
-                        <td>{{$team->team_menber6}}</td>
+                        <p>メンバー6</p>                  
+                        <input type="text" id="team_menber6" name="team_menber6" value="{{$team->team_menber6}}">
+                        <input type="email" id="email_menber6" name="email_menber6" value="{{$team->email_menber6}}">
                     @endif
-                </tr>
-            </table>
-            </div>    
-            
-        
-
-        <form action="{{ route('menber',['team'=>$team->user_id]) }}" method="POST">
-        {{ csrf_field() }}
-            <input type="hidden" name="user_id" value="{{ $team->user_id }}">
-            <input type="submit" value="編集する">
-        </form>
-        @endforeach
+                </div> 
+                <input type="submit" value="変更する">   
+            </form>  
+            @endforeach                
         </div>
-
+    </div>
 </div>
-
 <br>
 <br>
 <br>

@@ -43,15 +43,6 @@ class TaskController extends Controller
           return redirect('/');
       }
 
-
-      /**
-       * タスク確認
-       */
-      Public function taskcheck()
-      {
-
-      }
-
       /**
        * タスク作成
        * 
@@ -92,9 +83,9 @@ class TaskController extends Controller
             {
                 $userid = auth()->id();
 
-                $times = Task::where('user_id',$userid)->orderBy('created_at','desc')->get();
+                $tasks = Task::where('user_id',$userid)->orderBy('created_at','desc')->get();
                 return view('tasks.career',[
-                    'times' => $times,
+                    'tasks' => $tasks,
                 ]);
             }
 
@@ -163,7 +154,7 @@ class TaskController extends Controller
             }
 
             /**
-             * メンバー登録
+             * メンバー登録画面
              * 
              */
             Public function team()
@@ -176,18 +167,30 @@ class TaskController extends Controller
                 ]);
             }
 
-            /**
-             * メンバー登録画面
-             * 
-             */
-            Public function menber(Request $request)
-            {
-                $userid = $request->user_id;
-                $teams = Team::where('user_id',$userid)->get();
-                return view('tasks.teamadd',[
-                    'teams' => $teams,
-                ]);
 
+
+            /**
+             * メンバー追加
+             */
+            Public function menberadd(Request $request)
+            {
+                Team::create([
+                    'user_id'=>$request->user_id,
+                    'main_name'=>$request->main_name,
+                    'team_menber1'=>$request->team_menber1,
+                    'email_menber1'=>$request->email_menber1,
+                    'team_menber2'=>$request->team_menber2,
+                    'email_menber2'=>$request->email_menber2,
+                    'team_menber3'=>$request->team_menber3,
+                    'email_menber3'=>$request->email_menber3,
+                    'team_menber4'=>$request->team_menber4,
+                    'email_menber4'=>$request->email_menber4,
+                    'team_menber5'=>$request->team_menber5,
+                    'email_menber5'=>$request->email_menber5,
+                    'team_menber6'=>$request->team_menber6,
+                    'email_menber6'=>$request->email_menber6,
+                ]);
+                return redirect('team');
             }
 
 
@@ -197,14 +200,20 @@ class TaskController extends Controller
 
             Public function upload(Request $request)
             {
-                Team::where('user_id',$request->user_id)
+                Team::where('id',$request->id)
                 ->update([
                     'team_menber1'=>$request->team_menber1,
+                    'email_menber1'=>$request->email_menber1,
                     'team_menber2'=>$request->team_menber2,
+                    'email_menber2'=>$request->email_menber2,
                     'team_menber3'=>$request->team_menber3,
+                    'email_menber3'=>$request->email_menber3,
                     'team_menber4'=>$request->team_menber4,
+                    'email_menber4'=>$request->email_menber4,
                     'team_menber5'=>$request->team_menber5,
+                    'email_menber5'=>$request->email_menber5,
                     'team_menber6'=>$request->team_menber6,
+                    'email_menber6'=>$request->email_menber6,
                 ]);
                 return redirect('team');
             }

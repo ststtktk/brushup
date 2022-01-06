@@ -24,7 +24,7 @@
             <a href="brushup"><img src="/img/Brush up.svg" alt="burshupの画像"></a>
         </div>
         <div class="team">
-            <a href="team"><img src="/img/teams.svg" alt="teamsの画像"></a>
+            <a href="{{ route('team') }}"><img src="/img/teams.svg" alt="teamsの画像"></a>
         </div>
         <div class="more">
             <img src="/img/More.svg" alt="moreの画像">
