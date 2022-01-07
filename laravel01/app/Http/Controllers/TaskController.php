@@ -90,6 +90,22 @@ class TaskController extends Controller
             }
 
             /**
+             * チームメンバー表示
+             * 
+             */
+            Public function menberview(Request $request)
+            {
+                $userid = auth()->id();
+                $teammail = $request->email;
+                $tasks = Task::where('user_id',$userid)->orderBy('created_at','desc')->get();
+                $mails = Team::where('team_menber1',$teammail)->orwhere('team_menber2',$teammail)->orwhere('team_menber3',$teammail)->orwhere('team_menber4',$teammail)->orwhere('team_menber5',$teammail)->orwhere('team_menber6',$teammail)->get();
+                return view('tasks.career',[
+                    'mails' => $mails,
+                    'tasks' => $tasks,
+                ]);
+            }
+
+            /**
              * ドロップダウンリストの絞り込み
              * 
              */

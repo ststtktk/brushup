@@ -137,8 +137,16 @@
     margin-right: 30px;
 }
 
+.access-view .point .career img:hover {
+    width: 110%;
+}
+
 .access-view .point .brushup {
     margin-right: 30px;
+}
+
+.access-view .point .brushup img:hover {
+    width: 110%;
 }
 
 .access-view .point .team {
@@ -146,7 +154,15 @@
     margin-right: 30px;
 }
 
+.access-view .point .team img:hover {
+    width: 110%;
+}
+
 .access-view .point .more {
+}
+
+.access-view .point .more img:hover {
+    width: 110%;
 }
 
 .access-view .more {

@@ -17,6 +17,7 @@
         </div>
 
         <div class="time">
+            <h3>自分のタスク</h3>
             <select name="time" id="">  
             @foreach($tasks as $task)
                 <option name="time">{{ $task->time }}</option>
@@ -25,6 +26,23 @@
             <input type="submit" value="検索" name="search_btn">
         </div>
     </form>
+        <br>
+
+        <div class="teammenber">
+            <h3>チームメンバー</h3>
+            <p>{{ $user->email }}</p>
+            <form action="{{ route('menberview') }}" method="POST" id="email" name="email">
+            @csrf
+                <input type="hidden" value="{{ $user->email }}">
+                <input type="submit" value="検索" name="search">
+            </form>
+            @if(isset($_POST['search']))
+                @foreach($mails as $mail)
+                    <p>{{ $mail->main_mame }}</p>
+                @endforeach
+            @endif
+        </div>
+    
 </div>
 
 <!-- 
