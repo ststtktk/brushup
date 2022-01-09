@@ -34,6 +34,9 @@
     <div class="mountain">
         <img src="/img/mountain.svg" alt="mountainの画像">
     </div>
+    <br>
+    <br>
+    <br>
 </div>
 
 @endauth

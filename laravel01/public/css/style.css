@@ -7,8 +7,9 @@
     display: inline-flex;
     width: 100%;
     background-color: #edf0f2;
-    margin: 0px;
+    margin: 0px 0px 10px 0px;
     padding: 0px;
+    position: fixed;
     bottom: 0;
 }
 
@@ -172,7 +173,7 @@
 }
 
 .access-view .mountain img {
-    width: 90%;
+    width: 100%;
 }
 
 .form {

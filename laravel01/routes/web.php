@@ -21,7 +21,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/',function(){return view('tasks/home'); });
-Route::get('/tasks/login',function(){return view('tasks/login'); });
+Route::get('/login',function(){return view('tasks/login'); })->name('login');
 Route::get('/tasks/access',function(){return view('tasks/access'); });
 Route::get('/career',[App\Http\Controllers\TaskController::class, 'timeview'])->name('timeview');
 Route::get('/careeredit',[App\Http\Controllers\TaskController::class, 'timeview'])->name('careeredit');
