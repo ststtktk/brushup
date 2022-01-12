@@ -82,12 +82,12 @@ class TaskController extends Controller
             Public function timeview()
             {
                 $userid = auth()->id();
-
                 $tasks = Task::where('user_id',$userid)->orderBy('created_at','desc')->get();
                 return view('tasks.career',[
                     'tasks' => $tasks,
                 ]);
             }
+            
 
             /**
              * チームメンバー表示
@@ -98,12 +98,31 @@ class TaskController extends Controller
                 $userid = auth()->id();
                 $teammail = $request->email;
                 $tasks = Task::where('user_id',$userid)->orderBy('created_at','desc')->get();
-                $mails = Team::where('team_menber1',$teammail)->orwhere('team_menber2',$teammail)->orwhere('team_menber3',$teammail)->orwhere('team_menber4',$teammail)->orwhere('team_menber5',$teammail)->orwhere('team_menber6',$teammail)->get();
+                $teams = Team::where('email_menber1',$teammail)->orwhere('email_menber2',$teammail)->orwhere('email_menber3',$teammail)->orwhere('email_menber4',$teammail)->orwhere('email_menber5',$teammail)->orwhere('email_menber6',$teammail)->get();
                 return view('tasks.career',[
-                    'mails' => $mails,
+                    'teams' => $teams,
                     'tasks' => $tasks,
                 ]);
             }
+
+            /**
+             * メンバー作成月表示
+             */
+            Public function menbercreate(Request $request)
+            {
+                $userid = auth()->id();
+                $teammail = $request->email;
+                $teamview = $request->user_id;
+                $tasks = Task::where('user_id',$userid)->orderBy('created_at','desc')->get();
+                $teams = Team::where('email_menber1',$teammail)->orwhere('email_menber2',$teammail)->orwhere('email_menber3',$teammail)->orwhere('email_menber4',$teammail)->orwhere('email_menber5',$teammail)->orwhere('email_menber6',$teammail)->get();
+                $times = Task::where('user_id',$teamview)->orderBy('created_at','desc')->get();
+                return view('tasks.career',[
+                    'teams' => $teams,
+                    'tasks' => $tasks,
+                    'times' => $times,
+                ]);
+            }
+
 
             /**
              * ドロップダウンリストの絞り込み

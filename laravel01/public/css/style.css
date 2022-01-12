@@ -7,7 +7,7 @@
     display: inline-flex;
     width: 100%;
     background-color: #edf0f2;
-    margin: 0px 0px 10px 0px;
+    margin: 0px;
     padding: 0px;
     position: fixed;
     bottom: 0;
@@ -176,9 +176,46 @@
     width: 100%;
 }
 
+.form-brushup {
+    display: flex;
+    width: 1079px;
+    margin: 20px auto;
+    font-size: large;
+}
+
+.form-brushup label {
+}
+
+.form-brushup .my_profile {
+    margin-right: 85px;
+}
+
+.form-brushup .chief_profile {
+}
+
+.form-brushup .chief_profile .result {
+}
+
+.form-brushup .report p {
+    margin-bottom: 0;
+}
+
+.form-brushup .report .report_box {
+    display: inline-grid;
+}
+
+.form-brushup .report textarea {
+    width: 100%;
+}
+
+.form-brushup .works textarea {
+    width: 60%;
+}
+
+
 .form {
     display: flex;
-    width: 1007px;
+    width: 808px;
     margin: 20px auto;
     font-size: large;
 }
@@ -276,4 +313,12 @@
 
 .menber .menberchange form {
     text-align: center;
+}
+
+.search .teammenber{
+
+}
+
+.search .teammenber p{
+    
 }

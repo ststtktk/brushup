@@ -18,7 +18,7 @@
 <div class="access-view">
     <div class="point">
         <div class="career">
-            <a href="career"><img src="/img/Career.svg" alt="careerの画像"></a>
+            <a href="career"><img src="/img/Career.svg" alt="careerの画像" value="$user->email"></a>
         </div>
         <div class="brushup">
             <a href="brushup"><img src="/img/Brush up.svg" alt="burshupの画像"></a>

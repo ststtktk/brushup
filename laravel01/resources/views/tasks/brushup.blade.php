@@ -18,7 +18,7 @@
     </div>
 </div>
 
-<div class="form">
+<div class="form-brushup">
     <div class="my_profile">
         <h2>MyProfile</h2>
         <form action="{{ route('taskadd') }}" method="POST">

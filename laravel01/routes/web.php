@@ -24,12 +24,15 @@ Route::get('/',function(){return view('tasks/home'); });
 Route::get('/login',function(){return view('tasks/login'); })->name('login');
 Route::get('/tasks/access',function(){return view('tasks/access'); });
 Route::get('/career',[App\Http\Controllers\TaskController::class, 'timeview'])->name('timeview');
+
 Route::get('/careeredit',[App\Http\Controllers\TaskController::class, 'timeview'])->name('careeredit');
 Route::get('/brushup',function(){return view('tasks/brushup'); });
 //Route::get('/tasks/career',function(){return view('tasks/career'); });
 Route::post('useradd',[App\Http\Controllers\TaskController::class, 'useradd'])->name('useradd');
 Route::post('/taskadd',[App\Http\Controllers\TaskController::class,'taskadd'])->name('taskadd');
 Route::post('/show',[App\Http\Controllers\TaskController::class,'show'])->name('show');
+//Route::post('/menberview',[App\Http\Controllers\TaskController::class,'menberview'])->name('menberview');
+Route::post('/menbercreate',[App\Http\Controllers\TaskController::class,'menbercreate'])->name('menbercreate');
 Route::post('/edit',[App\Http\Controllers\TaskController::class,'edit'])->name('edit');
 Route::post('{task}/update',[App\Http\Controllers\TaskController::class,'update'])->name('update');
 Route::get('/team',[App\Http\Controllers\TaskController::class,'team'])->name('team');

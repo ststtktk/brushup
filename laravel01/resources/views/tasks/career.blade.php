@@ -30,25 +30,36 @@
 
         <div class="teammenber">
             <h3>チームメンバー</h3>
-            <p>{{ $user->email }}</p>
-            <form action="{{ route('menberview') }}" method="POST" id="email" name="email">
+            <form action="{{ route('menbercreate') }}" method="POST">
             @csrf
-                <input type="hidden" value="{{ $user->email }}">
-                <input type="submit" value="検索" name="search">
+                <input type="hidden" value="{{ $user->email }}" name="email">    
+                <input type="submit" value="チームメンバーを表示" name="search">
             </form>
             @if(isset($_POST['search']))
-                @foreach($mails as $mail)
-                    <p>{{ $mail->main_mame }}</p>
+                @foreach($teams as $team)
+                        <div class="loginname">
+                            <h3>{{ $team->main_name }}</h3>
+                        </div>
+                        <div class="time">
+                            <p>個人ID：{{ $team->user_id }}</p>
+                            <form action="" method="post">
+                            @csrf
+                                <select name="time" id="">  
+                                @foreach($times as $time)
+                                    <option name="time">{{ $time->time }}</option>
+                                @endforeach
+                                
+                                </select>
+                            <input type="hidden" name="user_id" value="{{ $team->user_id }}">
+                            <input type="submit" value="検索" name="search">
+                            </form>
+                        </div>
+                        
                 @endforeach
             @endif
         </div>
-    
 </div>
 
-<!-- 
-user_idが等しいものがない場合
-<p>投稿がありません</p>
- -->
 
 @if(isset($_POST['search_btn']))
 
@@ -282,7 +293,6 @@ user_idが等しいものがない場合
     @endforeach
 
 @else
-<p>検索して下さい</p>
 @endif
 <br>
 <br>
