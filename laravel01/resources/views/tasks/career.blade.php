@@ -10,12 +10,11 @@
         <div class="loginname">
             <h2>ログインユーザー：<?php $user=Auth::User(); ?>{{ $user->name }}</h2>
             <input type="hidden" name="id" value="{{ $user->id }}">
+            <input type="hidden" name="email" value="{{ $user->email }}">
         </div>
-
         <div class="title">
             <a href="home">ホーム画面</a>
         </div>
-
         <div class="time">
             <h3>自分のタスク</h3>
             <select name="time" id="">  
@@ -26,44 +25,51 @@
             <input type="submit" value="検索" name="search_btn">
         </div>
     </form>
-        <br>
+    <br>
 
-        <div class="teammenber">
-            <h3>チームメンバー</h3>
-            <form action="{{ route('menbercreate') }}" method="POST">
-            @csrf
-                <input type="hidden" value="{{ $user->email }}" name="email">    
-                <input type="submit" value="チームメンバーを表示" name="search">
-            </form>
-            @if(isset($_POST['search']))
-                @foreach($teams as $team)
-                        <div class="loginname">
-                            <h3>{{ $team->main_name }}</h3>
-                        </div>
-                        <div class="time">
-                            <p>個人ID：{{ $team->user_id }}</p>
-                            <form action="" method="post">
-                            @csrf
-                                <select name="time" id="">  
-                                @foreach($times as $time)
-                                    <option name="time">{{ $time->time }}</option>
-                                @endforeach
-                                
-                                </select>
-                            <input type="hidden" name="user_id" value="{{ $team->user_id }}">
-                            <input type="submit" value="検索" name="search">
-                            </form>
-                        </div>
-                        
-                @endforeach
-            @endif
-        </div>
+    
+    <div class="teammenber">
+        <h3>チームメンバー</h3>
+        @foreach($teams as $team)
+            <div class="loginname">
+                <h3>{{ $team->main_name }}</h3>
+            </div>
+            <div class="time">
+                <p>個人ID：{{ $team->user_id }}</p>
+                @if(isset($_POST['search']))
+                <form action="{{ route('menbercreate') }}" method="post">
+                @csrf
+                <input type="hidden" name="email" value="{{ $user->email }}">
+                <input type="hidden" name="user_id" value="{{ $team->user_id }}">
+                <input type="submit" value="年月を表示" name="search">
+                </form>
+                <form action="{{ route('show') }}" method="post">
+                @csrf
+                    <select name="time" id="">  
+                    @foreach($times as $time)
+                        <option name="time">{{ $time->time }}</option>
+                    @endforeach
+                    </select>
+                <input type="hidden" name="user_id" value="{{ $time->user_id }}">
+                <input type="submit" value="検索" name="search_btn">
+                </form>
+                @else
+                <form action="{{ route('menbercreate') }}" method="post">
+                @csrf
+                <input type="hidden" name="email" value="{{ $user->email }}">
+                <input type="hidden" name="user_id" value="{{ $team->user_id }}">
+                <input type="submit" value="年月を表示" name="search">
+                </form>
+                @endif
+            </div>
+        @endforeach
+    </div>
 </div>
 
 
 @if(isset($_POST['search_btn']))
 
-@foreach($tasks as $task)
+@foreach($times as $task)
     <p class="createday">作成日:{{ $task->time }}</p>
     <div class="form">
         <div class="my_profile">
@@ -218,7 +224,7 @@
                 <th>4.上司との報告・連絡・相談</th>
                 <th>5.業務内容とのマッチング度</th>
             </tr>
-            @foreach($times as $task)  
+            @foreach($tasks as $task)  
             <tr align="center">
                 <td width="10%">{{ $task->name }}</td>
                 <td width="10%">{{ $task->time }}</td>

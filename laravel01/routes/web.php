@@ -24,7 +24,6 @@ Route::get('/',function(){return view('tasks/home'); });
 Route::get('/login',function(){return view('tasks/login'); })->name('login');
 Route::get('/tasks/access',function(){return view('tasks/access'); });
 Route::get('/career',[App\Http\Controllers\TaskController::class, 'timeview'])->name('timeview');
-
 Route::get('/careeredit',[App\Http\Controllers\TaskController::class, 'timeview'])->name('careeredit');
 Route::get('/brushup',function(){return view('tasks/brushup'); });
 //Route::get('/tasks/career',function(){return view('tasks/career'); });

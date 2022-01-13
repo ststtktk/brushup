@@ -18,7 +18,10 @@
 <div class="access-view">
     <div class="point">
         <div class="career">
-            <a href="career"><img src="/img/Career.svg" alt="careerの画像" value="$user->email"></a>
+            <form action="{{ route('timeview') }}">
+                <input type="hidden" value="{{ $user->email }}" name="email">    
+                <input type="image" src="/img/Career.svg" value="チームメンバーを表示" name="search">
+            </form>
         </div>
         <div class="brushup">
             <a href="brushup"><img src="/img/Brush up.svg" alt="burshupの画像"></a>

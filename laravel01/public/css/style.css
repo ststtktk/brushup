@@ -138,7 +138,11 @@
     margin-right: 30px;
 }
 
-.access-view .point .career img:hover {
+.access-view .point .career input{
+    width:100%;
+}
+
+.access-view .point .career input:hover {
     width: 110%;
 }
 

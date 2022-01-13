@@ -79,12 +79,15 @@ class TaskController extends Controller
            /**
             * 作成月の表示
             */
-            Public function timeview()
+            Public function timeview(Request $request)
             {
                 $userid = auth()->id();
+                $teammail = $request->email;
                 $tasks = Task::where('user_id',$userid)->orderBy('created_at','desc')->get();
+                $teams = Team::where('email_menber1',$teammail)->orwhere('email_menber2',$teammail)->orwhere('email_menber3',$teammail)->orwhere('email_menber4',$teammail)->orwhere('email_menber5',$teammail)->orwhere('email_menber6',$teammail)->get();
                 return view('tasks.career',[
                     'tasks' => $tasks,
+                    'teams' => $teams,
                 ]);
             }
             
@@ -130,17 +133,16 @@ class TaskController extends Controller
              */
             Public function show(Request $request)
             {
-                $userid = auth()->id();
-
-                $times = Task::where('user_id',$userid)->orderBy('created_at','desc')->get();
-
-                $tasks = Task::where('user_id',$request->id)->where('time',$request->time)->get();
-                //foreach($tasks as $task){
+                $userid = $request->id;
+                $teammail = $request->email;
+                $times = Task::where('user_id',$request->id)->where('time',$request->time)->get();
+                $teams = Team::where('email_menber1',$teammail)->orwhere('email_menber2',$teammail)->orwhere('email_menber3',$teammail)->orwhere('email_menber4',$teammail)->orwhere('email_menber5',$teammail)->orwhere('email_menber6',$teammail)->get();
+                $tasks = Task::where('user_id',$userid)->orderBy('created_at','desc')->get();
                 return view('tasks.career',[
                     'times' =>$times,
                     'tasks' => $tasks,
+                    'teams' => $teams,
                 ]);
-                //}
             }
 
             /**
