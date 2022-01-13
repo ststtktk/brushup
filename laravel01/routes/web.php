@@ -33,7 +33,7 @@ Route::post('/show',[App\Http\Controllers\TaskController::class,'show'])->name('
 //Route::post('/menberview',[App\Http\Controllers\TaskController::class,'menberview'])->name('menberview');
 Route::post('/menbercreate',[App\Http\Controllers\TaskController::class,'menbercreate'])->name('menbercreate');
 Route::post('/edit',[App\Http\Controllers\TaskController::class,'edit'])->name('edit');
-Route::post('{task}/update',[App\Http\Controllers\TaskController::class,'update'])->name('update');
+Route::post('/update',[App\Http\Controllers\TaskController::class,'update'])->name('update');
 Route::get('/team',[App\Http\Controllers\TaskController::class,'team'])->name('team');
 Route::post('/menberadd',[App\Http\Controllers\TaskController::class,'menberadd'])->name('menberadd');
 Route::post('/upload/{team}',[App\Http\Controllers\TaskController::class,'upload'])->name('upload');

@@ -4,15 +4,14 @@
 
 @auth
 
-
+<h2>ログインユーザー：<?php $user=Auth::User(); ?>{{ $user->name }}</h2>
 @foreach($tasks as $task)
 <p class="createday">作成日:{{ $task->time }}</p>
+<form action="{{ route('update')}}" method="POST">
+{{ csrf_field() }}
 <div class="form">
-@csrf
-        <div class="my_profile">
+    <div class="my_profile">
         <h2>MyProfile</h2>
-        <form action="{{ route('update',['task'=>$task->id]) }}" method="POST">
-        {{ csrf_field() }}
             <div class="profile">
                 <label for="id"></label>
                 <input type="hidden" name="id" id="id" value="{{ $task->id }}">
@@ -642,18 +641,14 @@
                     <textarea name="chief_free" id="chief_free" cols="50" rows="5">{{ $task->chief_free }}</textarea>
                 </div>
             </div>
-
-            <input type="submit" name="btn_submit" value="内容を更新する">
-        </form>
     </div>
-    @endforeach
 </div>
-
-
-
+@endforeach
+<input type="hidden" name="email" value="{{ $user->email }}">
+<input class="careeredit" type="submit" name="btn_submit" value="内容を更新する">
+</form>    
 
 <a href="career">戻る</a>
-
 
 <br>
 <br>

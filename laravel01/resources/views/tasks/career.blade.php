@@ -37,29 +37,30 @@
             <div class="time">
                 <p>個人ID：{{ $team->user_id }}</p>
                 @if(isset($_POST['search']))
-                <form action="{{ route('menbercreate') }}" method="post">
-                @csrf
-                <input type="hidden" name="email" value="{{ $user->email }}">
-                <input type="hidden" name="user_id" value="{{ $team->user_id }}">
-                <input type="submit" value="年月を表示" name="search">
-                </form>
-                <form action="{{ route('show') }}" method="post">
-                @csrf
-                    <select name="time" id="">  
-                    @foreach($times as $time)
-                        <option name="time">{{ $time->time }}</option>
-                    @endforeach
-                    </select>
-                <input type="hidden" name="user_id" value="{{ $time->user_id }}">
-                <input type="submit" value="検索" name="search_btn">
-                </form>
+                    <form action="{{ route('show') }}" method="post">
+                        @csrf
+                        @foreach($times as $time)
+                        @if($time->user_id===$team->user_id)
+                        <input type="radio" name="time" value="{{ $time->time }}">{{$time->time}}
+                        <input type="hidden"  name="email" value="{{ $user->email }}">
+                        <input type="hidden" name="id" value="{{ $team->user_id }}">
+                        @endif
+                        @endforeach
+                        <input type="submit" value="検索" name="search_btn">
+                    </form>
+                    <form action="{{ route('menbercreate') }}" method="post">
+                    @csrf
+                        <input type="hidden" name="email" value="{{ $user->email }}">
+                        <input type="hidden" name="user_id" value="{{ $team->user_id }}">
+                        <input type="submit" value="{{ $team->main_name }}の作成月を表示" name="search">
+                    </form>
                 @else
-                <form action="{{ route('menbercreate') }}" method="post">
-                @csrf
-                <input type="hidden" name="email" value="{{ $user->email }}">
-                <input type="hidden" name="user_id" value="{{ $team->user_id }}">
-                <input type="submit" value="年月を表示" name="search">
-                </form>
+                    <form action="{{ route('menbercreate') }}" method="post">
+                    @csrf
+                        <input type="hidden" name="email" value="{{ $user->email }}">
+                        <input type="hidden" name="user_id" value="{{ $team->user_id }}">
+                        <input type="submit" value="{{ $team->main_name }}の作成月を表示" name="search">
+                    </form>
                 @endif
             </div>
         @endforeach
@@ -296,7 +297,7 @@
 
         </div>
     </div>
-    @endforeach
+@endforeach
 
 @else
 @endif

@@ -219,7 +219,7 @@
 
 .form {
     display: flex;
-    width: 808px;
+    width: 816px;
     margin: 20px auto;
     font-size: large;
 }
@@ -231,7 +231,8 @@
     margin-right: 85px;
 }
 
-.form .chief_profile {
+.form .task textarea{
+    width: 100%;
 }
 
 .form .chief_profile .result {
@@ -324,5 +325,9 @@
 }
 
 .search .teammenber p{
+    
+}
+
+.careeredit{
     
 }

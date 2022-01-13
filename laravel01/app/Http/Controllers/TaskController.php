@@ -91,23 +91,6 @@ class TaskController extends Controller
                 ]);
             }
             
-
-            /**
-             * チームメンバー表示
-             * 
-             */
-            Public function menberview(Request $request)
-            {
-                $userid = auth()->id();
-                $teammail = $request->email;
-                $tasks = Task::where('user_id',$userid)->orderBy('created_at','desc')->get();
-                $teams = Team::where('email_menber1',$teammail)->orwhere('email_menber2',$teammail)->orwhere('email_menber3',$teammail)->orwhere('email_menber4',$teammail)->orwhere('email_menber5',$teammail)->orwhere('email_menber6',$teammail)->get();
-                return view('tasks.career',[
-                    'teams' => $teams,
-                    'tasks' => $tasks,
-                ]);
-            }
-
             /**
              * メンバー作成月表示
              */
@@ -186,8 +169,14 @@ class TaskController extends Controller
                     'free'=>$request->free,
                     'chief_free'=>$request->chief_free,          
                 ]);
-
-                return redirect('career');
+                $userid = auth()->id();
+                $teammail = $request->email;
+                $tasks = Task::where('user_id',$userid)->orderBy('created_at','desc')->get();
+                $teams = Team::where('email_menber1',$teammail)->orwhere('email_menber2',$teammail)->orwhere('email_menber3',$teammail)->orwhere('email_menber4',$teammail)->orwhere('email_menber5',$teammail)->orwhere('email_menber6',$teammail)->get();
+                return view('tasks.career',[
+                    'tasks' => $tasks,
+                    'teams' => $teams,
+                ]);
             }
 
             /**
