@@ -39,3 +39,4 @@ Route::post('/menberadd',[App\Http\Controllers\TaskController::class,'menberadd'
 Route::post('/upload/{team}',[App\Http\Controllers\TaskController::class,'upload'])->name('upload');
 
 Route::post('/menberview',[App\Http\Controllers\TaskController::class,'menberview'])->name('menberview');
+Route::post('/delete',[App\Http\Controllers\TaskController::class,'destroy'])->name('tasks.destroy');

@@ -648,7 +648,10 @@
 <input class="careeredit" type="submit" name="btn_submit" value="内容を更新する">
 </form>    
 
-<a href="career">戻る</a>
+<form action="{{ route('timeview') }}">
+    <input type="hidden" value="{{ $user->email }}" name="email">    
+    <input type="submit"  value="戻る" name="search">
+</form>
 
 <br>
 <br>

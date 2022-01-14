@@ -64,5 +64,13 @@ class Task extends Model
             'chief_free' => $task['chief_free'],
         ]);
     }
-    
+
+    /**
+     * タスク削除
+     * 
+     */
+    Public function deletetask($task)
+    {
+        return $this->where(['id'=>$tweet['id']])->delete();
+    }
 }

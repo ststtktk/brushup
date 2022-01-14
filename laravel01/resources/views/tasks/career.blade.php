@@ -26,8 +26,6 @@
         </div>
     </form>
     <br>
-
-    
     <div class="teammenber">
         <h3>チームメンバー</h3>
         @foreach($teams as $team)
@@ -38,10 +36,10 @@
                 <p>個人ID：{{ $team->user_id }}</p>
                 @if(isset($_POST['search']))
                     <form action="{{ route('show') }}" method="post">
-                        @csrf
+                    @csrf
                         @foreach($times as $time)
                         @if($time->user_id===$team->user_id)
-                        <input type="radio" name="time" value="{{ $time->time }}">{{$time->time}}
+                        <input type="radio" name="time" value="{{ $time->time }}" required>{{$time->time}}
                         <input type="hidden"  name="email" value="{{ $user->email }}">
                         <input type="hidden" name="id" value="{{ $team->user_id }}">
                         @endif
@@ -66,12 +64,11 @@
         @endforeach
     </div>
 </div>
-
-
 @if(isset($_POST['search_btn']))
 
 @foreach($times as $task)
-    <p class="createday">作成日:{{ $task->time }}</p>
+    <p class="createday">作成月:{{ $task->time }}</p>
+    <p class="createday">作成者:{{ $task->name }}</p>
     <div class="form">
         <div class="my_profile">
             <h2>MyProfile</h2>
@@ -207,12 +204,20 @@
         </div> 
     </div>
 
-    <form action="{{ route('edit',['task'=>$task->id]) }}" method="POST" class="edit">
-        @csrf
-        <input type="hidden" name="id" value="{{ $task->user_id }}">
-        <input type="hidden" name="time" value="{{ $task->time }}">    
-        <input type="submit" value="内容を編集する" name="btn_submit">
-    </form>
+    <div class="formbutton">
+        <form action="{{ route('edit',['task'=>$task->id]) }}" method="POST" class="edit">
+            @csrf
+            <input type="hidden" name="id" value="{{ $task->user_id }}">
+            <input type="hidden" name="time" value="{{ $task->time }}">    
+            <input type="submit" value="編集する" name="btn_submit">
+        </form>
+        <form action="{{ route('tasks.destroy',['task'=>$task->id]) }}" method="POST" class="edit">
+            @csrf
+            <input type="hidden" value="{{ $task->id }}" name="id">
+            <input type="hidden" value="{{ $user->email }}" name="email">    
+            <input type="submit" value="削除する">
+        </form>
+    </div>
 
     <div class="table">
         <table border="1">     
@@ -252,11 +257,9 @@
         <div class="mychart">
             <canvas id="chart_cv"></canvas>
             <script type="text/javascript">
-
-            //グラフを描写
             
+            //グラフを描写
             const a = 50;
-
             const ctx = document.getElementById('chart_cv');
             const chart_cv = new Chart(ctx,{
                 type:'radar',
