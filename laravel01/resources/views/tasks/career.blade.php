@@ -28,10 +28,15 @@
     <br>
     <div class="teammenber">
         <h3>チームメンバー</h3>
+        <p>ログインユーザーが所属するチームのメンバーが表示されます</p>
         @foreach($teams as $team)
-            <div class="loginname">
-                <h3>{{ $team->main_name }}</h3>
-            </div>
+        <ul>
+            <li>
+                <div class="loginname">
+                    <h3>{{ $team->main_name }}</h3>
+                </div>
+            </li>
+        </ul>
             <div class="time">
                 <p>個人ID：{{ $team->user_id }}</p>
                 @if(isset($_POST['search']))
@@ -219,6 +224,58 @@
         </form>
     </div>
 
+
+    <div class="chart">
+        <p>{{ $task->time }}月のデータグラフ</p>
+        <div class="mychart">
+            <canvas id="chart_cv"></canvas>
+            <script type="text/javascript">
+            
+            //グラフを描写
+            const A = 100;
+            const B = 75;
+            const C = 50;
+            const D = 25;
+            const E = 0;
+            const ctx = document.getElementById('chart_cv');
+            const chart_cv = new Chart(ctx,{
+                type:'radar',
+                data:{
+                    labels:['1.仕事内容の理解と把握','2.成果への追求','3.社内ルール・法令の把握と理解','4.上司との報告・連絡・相談','5.業務内容とのマッチング度'],
+                    datasets:[{
+                        label:'自己評価',
+                        data:[{{ $task->ability1 }},{{ $task->ability2 }},{{ $task->ability3 }},{{ $task->ability4 }},{{ $task->ability5 }}],
+                        backgroundColor:'rgba(0,0,0,0)',
+                        borderWidth:5,
+                        borderColor:'rgba(0,228,0,0.5)',
+                    },{
+                        label:'上司評価',
+                        data:[{{ $task->chief_ability1 }},{{ $task->chief_ability2 }},{{ $task->chief_ability3 }},{{ $task->chief_ability4 }},{{ $task->chief_ability5 }}],
+                        backgroundColor:'rgba(0,0,0,0)',
+                        borderWidth:5,
+                        borderColor:'rgba(200,0,0,0.5)',
+                    }],
+                },
+                options: {
+                    scale: {
+                        ticks: {
+                            // 最小値・最大値
+                            min:0,
+                            max:100,
+                            borderColor:'rgba(100,100,100)',
+                            fontSize:18,
+                        },
+                        pointLabels:{
+                            fontSize:20,
+                        }
+                    },
+                },
+            });
+            </script>
+        </div>
+    </div>
+@endforeach
+
     <div class="table">
         <table border="1">     
             <tr>
@@ -252,56 +309,69 @@
             @endforeach
         </table>
     </div>
-    
-    <div class="chart">
+
+    <div class="grafu">
+        <p>データグラフ</p>
+        @foreach($tasks as $task)  
         <div class="mychart">
-            <canvas id="chart_cv"></canvas>
+            <canvas id="myLineChart">
+            </canvas>
             <script type="text/javascript">
-            
-            //グラフを描写
-            const a = 50;
-            const ctx = document.getElementById('chart_cv');
-            const chart_cv = new Chart(ctx,{
-                type:'radar',
-                data:{
-                    labels:['1.仕事内容の理解と把握','2.成果への追求','3.社内ルール・法令の把握と理解','4.上司との報告・連絡・相談','5.業務内容とのマッチング度'],
-                    datasets:[{
-                        label:'自己評価',
-                        data:[a,34,55,66,89],
-                        backgroundColor:'rgba(0,0,0,0)',
-                        borderWidth:5,
-                        borderColor:'rgba(0,228,0,0.5)',
-                    },{
-                        label:'上司評価',
-                        data:[53,67,34,88,36],
-                        backgroundColor:'rgba(0,0,0,0)',
-                        borderWidth:5,
-                        borderColor:'rgba(200,0,0,0.5)',
-                    }],
+            const A = 100;
+            const B = 75;
+            const C = 50;
+            const D = 25;
+            const E = 0;
+            var ctz = document.getElementById("myLineChart");
+            var myLineChart = new Chart(ctz, {
+                type: 'line',
+                data: {
+                //データ項目のラベル
+                labels:['1.仕事内容の理解と把握','2.成果への追求','3.社内ルール・法令の把握と理解','4.上司との報告・連絡・相談','5.業務内容とのマッチング度'],
+                datasets: [
+                    {
+                    //凡例のラベル
+                    label: '本人',
+                    data:[45,53,89,23,42],
+                    borderColor: "rgba(200,112,126,1)",
+                    backgroundColor: "rgba(0,0,0,0)"
+                    },
+                    {
+                    //凡例のラベル
+                    label: '上司',
+                    data:[77,93,36,25,55],
+                    borderColor: "rgba(80,126,164,1)",
+                    backgroundColor: "rgba(0,0,0,0)"
+                    }
+                ],
                 },
                 options: {
-                    scale: {
-                        ticks: {
-                            // 最小値・最大値
-                            min:0,
-                            max:100,
-                            borderColor:'rgba(100,100,100)',
-                            fontSize:18,
-                        },
-                        pointLabels:{
-                            fontSize:20,
-                        }
-                    },
+                title: {
+                    display: true,
+                //グラフタイトル
+                    text: 'データまとめ'
                 },
+                scales: {
+                    yAxes: [{
+                    ticks: {
+                        suggestedMax: 100, //最大値
+                        suggestedMin: 0, //最小値
+                        stepSize: 10, //縦ラベルの数値単位
+                        callback: function(value, index, values){
+                        return  value +  '％' //縦軸の単位
+                        }
+                    }
+                    }]
+                },
+                }
             });
             </script>
         </div>
-        <div class="chiefchart">
-
-        </div>
+        @endforeach
     </div>
-@endforeach
+    
 
+    
 @else
 @endif
 <br>

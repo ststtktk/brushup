@@ -174,6 +174,25 @@
 }
 
 .access-view .mountain {
+    overflow:hidden;
+    position: relative;
+}
+
+.access-view .mountain:before{
+    animation: mountain 8s cubic-bezier(.4, 0, .2, 1) forwards;
+    background: #dddada;
+    bottom: 0;
+    content: '';
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+@keyframes mountain {
+    100% {
+      transform: translateX(100%);
+    }
 }
 
 .access-view .mountain img {
@@ -185,34 +204,47 @@
     width: 1079px;
     margin: 20px auto;
     font-size: large;
-}
-
-.form-brushup .task textarea {
-    width: 80%;
-}
-
-.form-brushup .report .report_box textarea {
-    width: 80%;
-}
-
-.form-brushup form {
-    display: flex;
-}
-
-.form-brushup form .brushup {
-    position: absolute;
-    left: 47%;
-    bottom: -30%;
+    text-align: center;
 }
 
 .form-brushup label {
 }
 
+.form-brushup .task textarea {
+    width: 100%;
+}
+
+.form-brushup .report .report_box textarea {
+    width: 100%;
+}
+
+.form-brushup form {
+    display: inline-flex;
+    position: relative;
+    left: 10px;
+}
+
+.form-brushup form .brushup {
+    position: absolute;
+    top: 104%;
+    left: 46%;
+}
+
+.form-brushup .result ul {
+    list-style: none;
+}
+
 .form-brushup .my_profile {
     margin-right: 85px;
+    text-align: left;
+    background-color: #ffffffc9;
+    border: 3px solid #35c748;
 }
 
 .form-brushup .chief_profile {
+    text-align: left;
+    background-color: #ffffffc9;
+    border: 3px solid #d73a3ab5;
 }
 
 .form-brushup .chief_profile .result {
@@ -246,7 +278,17 @@
 }
 
 .form .my_profile {
-    margin-right: 85px;
+    margin-right: 70px;
+    background-color: #ffffff;
+    border: 3px solid #35c748;
+}
+
+.form .chief_profile {
+    background-color: #ffffff;
+    border: 3px solid #d73a3ab5;
+}
+
+.my_profile {
 }
 
 .form .task textarea {
@@ -289,9 +331,14 @@
     margin-top: 70px;
 }
 
+.chart p{
+    text-align: center;
+    font-size: x-large;
+}
+
 .table {
     width: 1500px;
-    max-width: 100%;
+    max-width: 90%;
     margin: 60px auto;
     font-size: large;
 }
@@ -312,7 +359,7 @@
 
 .menber {
     margin: 20px auto;
-    width: 555px;
+    width: 627px;
     max-width: 100%;
     display: flex;
 }
@@ -347,7 +394,12 @@
     text-align: center;
 }
 
-.search .teammenber {
+.search .teammenber .time {
+    margin-bottom: 25px;
+}
+
+.search .teammenber ul {
+    margin-bottom: 8px;
 }
 
 .careeredit {

@@ -15,7 +15,7 @@
 
 <div class="menber">
     <div class="menberadd">
-        <h2>メンバー追加</h2>
+        <h2>チームを新規作成</h2>
         <form action="{{ route('menberadd') }}" method="POST">
             @csrf
             <label for="user_id"></label>
@@ -57,7 +57,7 @@
     </div>
 
     <div class="menberchange">
-        <h2>メンバー変更</h2>
+        <h2>チームメンバー変更</h2>
         <div class="formchange">    
             @foreach($teams as $team)
             <form action="{{ route('upload',['team'=>$team->id]) }}" method="POST">
