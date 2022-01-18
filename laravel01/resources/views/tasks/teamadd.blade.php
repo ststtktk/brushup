@@ -3,13 +3,6 @@
 @section('content')
 
 <div class="access-view">
-    <!--
-    <div class="point">
-        <div class="brushup">
-            <img src="/img/Brush up.svg" alt="burshupの画像">
-        </div>
-    </div>
-    -->
     <div class="loginname">
         <h2>ログインユーザー：<?php $user=Auth::User(); ?>{{ $user->name }}</h2>
     </div>
@@ -17,10 +10,9 @@
         <a href="home">ホーム</a>
     </div>
 </div>
-
 <label for="main_name">本人:{{ $user->name }}</label><br>
 <div class="form">
-        <div class="teams">
+    <div class="teams">
         <h2>Team Menber 編集</h2>
         @foreach($teams as $team)
         <form action="{{ route('upload',['team'=>$team->user_id]) }}" method="POST">
@@ -36,7 +28,6 @@
                         <td><label for="team_menber1">メンバー1</label></td>                        
                         <td><input type="text" value="{{$team->team_menber1}}" name="team_menber1" id="team_menber1"></td>
                     @endif
-                    
                 </tr>
                 <tr>
                     @if($team->team_menber2 == "")
@@ -88,10 +79,8 @@
             <input type="submit" name="btn_submit" value="内容を更新する">
             @endforeach
         </form>
-        </div>
-    
+    </div>
 </div>
-
 <br>
 <br>
 <br>

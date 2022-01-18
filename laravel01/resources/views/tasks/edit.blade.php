@@ -9,9 +9,9 @@
 <p class="createday">作成日:{{ $task->time }}</p>
 <form action="{{ route('update')}}" method="POST">
 {{ csrf_field() }}
-<div class="form">
-    <div class="my_profile">
-        <h2>MyProfile</h2>
+    <div class="form">
+        <div class="my_profile">
+            <h2>MyProfile</h2>
             <div class="profile">
                 <label for="id"></label>
                 <input type="hidden" name="id" id="id" value="{{ $task->id }}">
@@ -82,7 +82,6 @@
                 <p>仕事内容</p>
                 <textarea name="task" cols="50" rows="5">{{ $task->task }}</textarea>
             </div>
-
             <div class="result">
                 <p>評価</p>
                 <ul>
@@ -316,7 +315,6 @@
                         @endif
                 </div>
             </div>
-
             <div class="report">
                 <p>所見欄</p>
                 <div class="report_box">
@@ -324,14 +322,9 @@
                     <textarea name="free" id="free" cols="50" rows="5">{{ $task->free }}</textarea>
                 </div>
             </div>
-
-            <!--<input type="submit" name="btn_submit" value="内容を確認する">
-        </form>-->
-    </div>
-    
-    <div class="chief_profile">
-        <h2>ChiefProfile</h2>
-        <!--<form action="{{ route('taskadd') }}" method="post">-->
+        </div>
+        <div class="chief_profile">
+            <h2>ChiefProfile</h2>
             <div class="profile">
                 <label for="chief_name">上司氏名</label>
                 <input type="text" name="chief_name" id="chief_name" value="{{ $task->chief_name }}">
@@ -633,7 +626,6 @@
                         @endif
                 </div>
             </div>
-
             <div class="report">
                 <p>所見欄</p>
                 <div class="report_box">
@@ -641,22 +633,23 @@
                     <textarea name="chief_free" id="chief_free" cols="50" rows="5">{{ $task->chief_free }}</textarea>
                 </div>
             </div>
+        </div>
     </div>
-</div>
 @endforeach
-<input type="hidden" name="email" value="{{ $user->email }}">
-<input class="careeredit" type="submit" name="btn_submit" value="内容を更新する">
+    <input type="hidden" name="email" value="{{ $user->email }}">
+    <input class="careeredit" type="submit" name="btn_submit" value="内容を更新する">
 </form>    
 
-<form action="{{ route('timeview') }}">
-    <input type="hidden" value="{{ $user->email }}" name="email">    
-    <input type="submit"  value="戻る" name="search">
+<form action="{{ route('show') }}" method="POST">
+@csrf
+    <input type="hidden" name="email" value="{{ $user->email }}" >
+    <input type="hidden" name="time" value="{{ $task->time }}">
+    <input type="hidden" name="id" value="{{ $user->id }}">    
+    <input type="submit"  value="戻る" name="search_btn">
 </form>
-
 <br>
 <br>
 <br>
 <br>
-
 @endauth
 @endsection

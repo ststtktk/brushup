@@ -70,7 +70,6 @@
     </div>
 </div>
 @if(isset($_POST['search_btn']))
-
 @foreach($times as $task)
 <p class="createday">作成月:{{ $task->time }}</p>
 <p class="createday">作成者:{{ $task->name }}</p>
@@ -139,10 +138,8 @@
             </div>
         </div>
     </div>
-
     <div class="chief_profile">
         <h2>ChiefProfile</h2>
-        <!--<form action="{{ route('taskadd') }}" method="post">-->
         <div class="profile">
             <label for="chief_name">上司氏名</label><br>
             {{ $task->chief_name }}
@@ -169,7 +166,6 @@
             <label for="">仕事内容</label><br>
             {{ $task->task }}
         </div>
-
         <div class="result">
             <p>評価</p>
             <ul>
@@ -198,17 +194,14 @@
                 <br>
             </div>
         </div>
-
         <div class="report">
             <p>所見欄</p>
             <div class="report_box">
                 {{ $task->chief_free }}
             </div>
         </div>        
-        
     </div> 
 </div>
-
 <div class="formbutton">
     <form action="{{ route('edit',['task'=>$task->id]) }}" method="POST" class="edit">
         @csrf
@@ -223,10 +216,9 @@
         <input type="submit" value="削除する">
     </form>
 </div>
-
-
 <div class="chart">
     <p>{{ $task->time }}月のデータグラフ</p>
+    <p>A=100% B=75% C=50% D=25% E=0%</p>
     <div class="mychart">
         <canvas id="chart_cv"></canvas>
         <script type="text/javascript">
@@ -274,7 +266,6 @@
     </div>
 </div>
 @endforeach
-
 <div class="table">
     <table border="1">     
         <tr>
@@ -308,7 +299,6 @@
         @endforeach
     </table>
 </div>
-
 <div class="grafu">
     <div class="grafuchart">
         <div class="canvas-container">

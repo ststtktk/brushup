@@ -163,14 +163,8 @@
     width: 110%;
 }
 
-.access-view .point .more {
-}
-
 .access-view .point .more img:hover {
     width: 110%;
-}
-
-.access-view .more {
 }
 
 .access-view .mountain {
@@ -205,9 +199,6 @@
     margin: 20px auto;
     font-size: large;
     text-align: center;
-}
-
-.form-brushup label {
 }
 
 .form-brushup .task textarea {
@@ -247,9 +238,6 @@
     border: 3px solid #d73a3ab5;
 }
 
-.form-brushup .chief_profile .result {
-}
-
 .form-brushup .report p {
     margin-bottom: 0;
 }
@@ -274,9 +262,6 @@
     font-size: large;
 }
 
-.form label {
-}
-
 .form .my_profile {
     margin-right: 70px;
     background-color: #ffffff;
@@ -288,14 +273,8 @@
     border: 3px solid #d73a3ab5;
 }
 
-.my_profile {
-}
-
 .form .task textarea {
     width: 100%;
-}
-
-.form .chief_profile .result {
 }
 
 .form .report p {

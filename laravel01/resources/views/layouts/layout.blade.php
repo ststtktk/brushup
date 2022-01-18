@@ -28,9 +28,7 @@
         <main class="center">
             @yield('content')
         </main>
-    </div>
-
-    
+    </div>    
     <div class="box-contact">
         <img src="/img/company.png" alt="companyの写真">
         <div class="contact">

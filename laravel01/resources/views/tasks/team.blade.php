@@ -12,7 +12,6 @@
         <a href="home">ホーム</a>
     </div>
 </div>
-
 <div class="menber">
     <div class="menberadd">
         <h2>チームを新規作成</h2>
@@ -55,7 +54,6 @@
             <input type="submit" value="登録する">    
         </form> 
     </div>
-
     <div class="menberchange">
         <h2>チームメンバー変更</h2>
         <div class="formchange">    

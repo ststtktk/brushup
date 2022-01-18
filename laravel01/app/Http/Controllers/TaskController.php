@@ -15,7 +15,6 @@ class TaskController extends Controller
      * 
      * 
      */
-
      Public function useradd(Request $request)
      {
          $this->validate($request,[
@@ -23,7 +22,6 @@ class TaskController extends Controller
              'email'=>'required',
              'password'=>'required'
          ]);
-
          User::create([
              'user_id'=>0,
              'name'=>$request->name,
@@ -36,7 +34,6 @@ class TaskController extends Controller
      /**
       * ログアウト
       */
-
       Public function logout()
       {
           Auth::logout();
@@ -47,7 +44,6 @@ class TaskController extends Controller
        * タスク作成
        * 
        */
-
        Public function taskadd(Request $request)
        {
            Task::create([
@@ -73,7 +69,7 @@ class TaskController extends Controller
                'free'=>$request->free,
                'chief_free'=>$request->chief_free
            ]);
-           return redirect('home');
+           return view('home');
        }
 
         /**
@@ -108,7 +104,6 @@ class TaskController extends Controller
                 'times' => $times,
             ]);
         }
-
 
         /**
          * ドロップダウンリストの絞り込み
@@ -145,6 +140,9 @@ class TaskController extends Controller
             ]);
         }
         
+        /**
+         * タスクアップデート
+         */
         Public function update(Request $request)
         {
             Task::where('id',$request->id)
@@ -197,7 +195,6 @@ class TaskController extends Controller
             ]);
         }
 
-
         /**
          * メンバー登録画面
          * 
@@ -205,14 +202,11 @@ class TaskController extends Controller
         Public function team()
         {
             $userid = auth()->id();
-
             $teams = Team::where('user_id',$userid)->get();
             return view('tasks.team',[
                 'teams' => $teams,
             ]);
         }
-
-
 
         /**
          * メンバー追加
@@ -238,11 +232,9 @@ class TaskController extends Controller
             return redirect('team');
         }
 
-
         /**
          * メンバー変更
          */
-
         Public function upload(Request $request)
         {
             Team::where('id',$request->id)
@@ -262,8 +254,5 @@ class TaskController extends Controller
             ]);
             return redirect('team');
         }
-
-
-
 
 }
