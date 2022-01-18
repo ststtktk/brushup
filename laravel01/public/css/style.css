@@ -406,3 +406,14 @@
     position: absolute;
     left: 45%;
 }
+
+.grafu .grafuchart{
+    height: 100%;
+    width: 100%;
+}
+
+.grafu .canvas-container{
+    height: 50%;
+    width: 60%;
+    margin:auto;
+}

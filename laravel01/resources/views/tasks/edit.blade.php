@@ -398,7 +398,7 @@
             </div>
             <div class="task">
                 <p>仕事内容</p>
-                <textarea name="task" cols="50" rows="5">入力の必要はありません</textarea>
+                <textarea cols="50" rows="5">入力の必要はありません</textarea>
             </div>
             <div class="result">
                 <p>評価</p>

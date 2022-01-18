@@ -44,12 +44,12 @@ class Task extends Model
             'id' => $task['id']
         ])->update([
             'name' => $task['name'],
-            'class' => $task['name'],
-            'workyears' => $task['name'],
-            'task' => $task['name'],
-            'chief_name' => $task['name'],
-            'chief_class' => $task['name'],
-            'chief_workyears' => $task['name'],
+            'class' => $task['class'],
+            'workyears' => $task['workyears'],
+            'task' => $task['task'],
+            'chief_name' => $task['chief_name'],
+            'chief_class' => $task['chief_class'],
+            'chief_workyears' => $task['chief_workyears'],
             'ability1' => $task['ability1'],
             'ability2' => $task['ability2'],
             'ability3' => $task['ability3'],
