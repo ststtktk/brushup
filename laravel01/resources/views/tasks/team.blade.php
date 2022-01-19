@@ -5,6 +5,7 @@
 @auth
 
 <div class="access-view">
+    <p class="teaching">チームメンバーに登録することで、自分のタスクを観覧できるメンバーを設定できます。</p>
     <div class="loginname">
         <h2>ログインユーザー：<?php $user=Auth::User(); ?>{{ $user->name }}</h2>
     </div>

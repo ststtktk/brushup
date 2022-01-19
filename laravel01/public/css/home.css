@@ -1,7 +1,7 @@
 body {
     min-width: 1076px;
     background-color: #959292;
-    margin:0;
+    margin: 0;
 }
 
 .box-contact {
@@ -45,14 +45,20 @@ body {
     margin: 0;
 }
 
-.home-view {
-    background: radial-gradient(circle farthest-side, #ffff,#959292);
+.home-view .maintitle {
+    color: #d1d1d1;
+    margin-top: 10%;
+    margin-bottom: 0;
+    font-size: xxx-large;
+    text-align: center;
+    font-family: system-ui;
 }
 
 .home-view .title {
     text-align: center;
     max-width: 100%;
-    margin-top: 300px;
+    margin-top: 10%;
+    background: radial-gradient( farthest-corner at 0%, #ffffff,#959292);
 }
 
 .home-view .title img {

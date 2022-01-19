@@ -2,7 +2,9 @@
 
 @section('content')
 
+
 <div class="access-view">
+    <p class="teaching">今月のタスクを作成してください。ChiefProfileは後から編集可能です。</p>
     <div class="loginname">
         <h2>ログインユーザー：<?php $user=Auth::User(); ?>{{ $user->name }}</h2>
     </div>
@@ -17,7 +19,7 @@
             <h2>MyProfile</h2>
             <div class="time">
                 <label for="time">作成日</label>
-                <input type="month" name="time">
+                <input type="month" name="time" required>
             </div>
             <div class="profile">
                 <input type="hidden" name="user_id" value="<?php $user = Auth::user(); ?>{{ $user->id }}">

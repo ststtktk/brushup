@@ -381,6 +381,18 @@
     margin-bottom: 8px;
 }
 
+.teammenber .teamlist {
+    border: 1px solid #b7b7b7;
+}
+
+.teammenber .teamlist ul {
+    margin-top: 20px;
+}
+
+.teammenber .time {
+    margin-bottom: 30px;
+}
+
 .careeredit {
     position: absolute;
     left: 45%;
@@ -395,4 +407,17 @@
     height: 50%;
     width: 60%;
     margin:auto;
+}
+
+.teaching {
+    background-color: #8b8b8b;
+    color: #ffffff;
+    font-size: large;
+    text-align: center;
+}
+
+.maincareer .circle {
+    background-color: #ffffff;
+    border-radius: 100%;
+    position: relative;
 }

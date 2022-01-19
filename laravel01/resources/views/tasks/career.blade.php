@@ -4,16 +4,17 @@
 
 @auth
 
-<div class="search">
+<div class="maincareer">
+    <p class="teaching">自分の作成したタスクの編集や自分が属するチームのメンバーが表示され、そのメンバーのタスクを編集することができます</p>
     <form action="{{ route('show') }}" method="POST">
     @csrf
+        <div class="title">
+            <a href="home">ホーム画面</a>
+        </div>
         <div class="loginname">
             <h2>ログインユーザー：<?php $user=Auth::User(); ?>{{ $user->name }}</h2>
             <input type="hidden" name="id" value="{{ $user->id }}">
             <input type="hidden" name="email" value="{{ $user->email }}">
-        </div>
-        <div class="title">
-            <a href="home">ホーム画面</a>
         </div>
         <div class="time">
             <h3>自分のタスク</h3>
@@ -30,15 +31,15 @@
         <h3>チームメンバー</h3>
         <p>ログインユーザーが所属するチームのメンバーが表示されます</p>
         @foreach($teams as $team)
-        <ul>
-            <li>
-                <div class="loginname">
-                    <h3>{{ $team->main_name }}</h3>
-                </div>
-            </li>
-        </ul>
+        <div class="teamlist">
+            <ul>
+                <li>
+                    <div class="loginname">
+                        <h3>{{ $team->main_name }}</h3>
+                    </div>
+                </li>
+            </ul>
             <div class="time">
-                <p>個人ID：{{ $team->user_id }}</p>
                 @if(isset($_POST['search']))
                     <form action="{{ route('show') }}" method="post">
                     @csrf
@@ -66,13 +67,15 @@
                     </form>
                 @endif
             </div>
+        </div>
         @endforeach
     </div>
 </div>
+
 @if(isset($_POST['search_btn']))
 @foreach($times as $task)
 <p class="createday">作成月:{{ $task->time }}</p>
-<p class="createday">作成者:{{ $task->name }}</p>
+<p class="createday">{{ $task->name }}のタスクを表示中</p>
 <div class="form">
     <div class="my_profile">
         <h2>MyProfile</h2>
