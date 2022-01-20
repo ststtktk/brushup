@@ -201,6 +201,10 @@
     text-align: center;
 }
 
+.form-brushup .my_profile .time p{
+    color:red;
+}
+
 .form-brushup .task textarea {
     width: 100%;
 }

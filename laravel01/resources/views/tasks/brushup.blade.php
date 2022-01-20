@@ -18,7 +18,7 @@
         <div class="my_profile">
             <h2>MyProfile</h2>
             <div class="time">
-                <label for="time">作成日</label>
+                <label for="time">作成日 <p>※必須</p></label>
                 <input type="month" name="time" required>
             </div>
             <div class="profile">
