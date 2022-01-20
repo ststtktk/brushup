@@ -9,7 +9,7 @@
     <form action="{{ route('show') }}" method="POST">
     @csrf
         <div class="title">
-            <a href="home">ホーム画面</a>
+            <a href="home">ホーム</a>
         </div>
         <div class="loginname">
             <h2>ログインユーザー：<?php $user=Auth::User(); ?>{{ $user->name }}</h2>
@@ -26,7 +26,7 @@
             <input type="submit" value="検索" name="search_btn">
         </div>
     </form>
-    <br>
+    <div class="line"></div>
     <div class="teammenber">
         <h3>チームメンバー</h3>
         <p>ログインユーザーが所属するチームのメンバーが表示されます</p>
@@ -48,9 +48,11 @@
                         <input type="radio" name="time" value="{{ $time->time }}" required>{{$time->time}}
                         <input type="hidden"  name="email" value="{{ $user->email }}">
                         <input type="hidden" name="id" value="{{ $team->user_id }}">
+                            @if(!$time->time=="")
+                            <input type="submit" value="検索" name="search_btn">
+                            @endif
                         @endif
                         @endforeach
-                        <input type="submit" value="検索" name="search_btn">
                     </form>
                     <form action="{{ route('menbercreate') }}" method="post">
                     @csrf
@@ -215,8 +217,8 @@
     <form action="{{ route('tasks.destroy',['task'=>$task->id]) }}" method="POST" class="edit">
         @csrf
         <input type="hidden" value="{{ $task->id }}" name="id">
-        <input type="hidden" value="{{ $user->email }}" name="email">    
-        <input type="submit" value="削除する">
+        <input type="hidden" value="{{ $user->email }}" name="email">   
+        <input type="submit" value="削除する" name="delete" onClick="delete_alert(event);return false;">
     </form>
 </div>
 <div class="chart">

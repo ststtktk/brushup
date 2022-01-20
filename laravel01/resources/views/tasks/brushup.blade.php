@@ -181,7 +181,7 @@
                 </div>
             </div>
         </div>
-        <input class="brushup" type="submit" name="btn_submit" value="送信する">
+        <input class="brushup" type="submit" name="btn_submit" value="送信する" onClick="submit_alert(event);return false">
     </form>
 </div>
 <br>

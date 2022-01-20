@@ -637,7 +637,7 @@
     </div>
 @endforeach
     <input type="hidden" name="email" value="{{ $user->email }}">
-    <input class="careeredit" type="submit" name="btn_submit" value="内容を更新する">
+    <input class="careeredit" type="submit" name="btn_submit" value="内容を更新する" onClick="update_alert(event);return false;">
 </form>    
 
 <form action="{{ route('show') }}" method="POST">

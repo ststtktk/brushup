@@ -69,7 +69,7 @@ class TaskController extends Controller
                'free'=>$request->free,
                'chief_free'=>$request->chief_free
            ]);
-           return view('home');
+           return redirect('home');
        }
 
         /**

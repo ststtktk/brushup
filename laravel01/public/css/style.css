@@ -416,6 +416,11 @@
     text-align: center;
 }
 
+.maincareer .line {
+    border: 2px dashed #ffffff;
+    margin-bottom: 28px;
+}
+
 .maincareer .circle {
     background-color: #ffffff;
     border-radius: 100%;
