@@ -27,3 +27,19 @@ function submit_alert(event)
         }
         document.submitform.submit();
 };
+
+function register_alert(event)
+{
+    if(!window.confirm('登録しますか？'))
+        {
+            window.alert('キャンセルされました');
+            return false;
+        }
+        document.registerform.submit();
+};
+
+const career = document.getElemeneById('career');
+//カーソルが上に乗った時
+career.addEventListener('mouseover',()=>{
+    
+}, false);

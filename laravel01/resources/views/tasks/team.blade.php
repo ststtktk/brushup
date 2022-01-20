@@ -5,7 +5,7 @@
 @auth
 
 <div class="access-view">
-    <p class="teaching">チームメンバーに登録することで、自分のタスクを観覧できるメンバーを設定できます。</p>
+    <p class="teaching">チームメンバーに登録することで、自分のタスクを観覧できるメンバーを設定できます。６人を超える場合は再度、チームを作成して下さい。</p>
     <div class="loginname">
         <h2>ログインユーザー：<?php $user=Auth::User(); ?>{{ $user->name }}</h2>
     </div>
@@ -52,7 +52,7 @@
                 <input type="text" id="team_menber6" name="team_menber6" placeholder="氏名">
                 <input type="email" id="email_menber6" name="email_menber6" placeholder="メールアドレス">
             </div>
-            <input type="submit" value="登録する">    
+            <input type="submit" value="登録する" onClick="register_alert(event);return false;">    
         </form> 
     </div>
     <div class="menberchange">
@@ -132,7 +132,7 @@
                         <input type="email" id="email_menber6" name="email_menber6" value="{{$team->email_menber6}}">
                     @endif
                 </div> 
-                <input type="submit" value="変更する">   
+                <input type="submit" value="変更する" onClick="update_alert(event);return false;">   
             </form>  
             @endforeach                
         </div>
@@ -142,6 +142,5 @@
 <br>
 <br>
 <br>
-
 @endauth
 @endsection
