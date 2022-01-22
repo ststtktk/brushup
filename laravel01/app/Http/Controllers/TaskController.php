@@ -115,7 +115,7 @@ class TaskController extends Controller
             $teammail = $request->email;
             $times = Task::where('user_id',$request->id)->where('time',$request->time)->get();
             $teams = Team::where('email_menber1',$teammail)->orwhere('email_menber2',$teammail)->orwhere('email_menber3',$teammail)->orwhere('email_menber4',$teammail)->orwhere('email_menber5',$teammail)->orwhere('email_menber6',$teammail)->get();
-            $tasks = Task::where('user_id',$userid)->orderBy('created_at','desc')->get();
+            $tasks = Task::where('user_id',$userid)->orderBy('created_at','asc')->get();
             return view('tasks.career',[
                 'times' =>$times,
                 'tasks' => $tasks,

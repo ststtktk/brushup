@@ -2,7 +2,6 @@
 
 @section('content')
 
-
 <div class="access-view">
     <p class="teaching">今月のタスクを作成してください。ChiefProfileは後から編集可能です。</p>
     <div class="loginname">
@@ -104,6 +103,7 @@
             <div class="time">
                 <label for="time">作成日</label>
             </div>
+            <br>
             <div class="profile">
                 <label for="chief_name">上司氏名</label>
                 <input type="text" name="chief_name" id="chief_name" value="">
