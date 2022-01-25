@@ -24,6 +24,7 @@
     display: inline-flex;
     font-size: 150%;
     letter-spacing: 3px;
+    color: #000000;
 }
 
 .box-contact .contact-phone {
@@ -429,4 +430,12 @@
     background-color: #ffffff;
     border-radius: 100%;
     position: relative;
+}
+
+.manual-mountain{
+
+}
+
+.manual-mountain img{
+    width: 100%;
 }

@@ -27,7 +27,7 @@
             <a href="{{ route('team') }}"><img src="/img/teams.svg" alt="teamsの画像"></a>
         </div>
         <div class="more">
-            <img src="/img/More.svg" alt="moreの画像">
+            <a href="manual"><img src="/img/More.svg" alt="moreの画像"></a>
         </div>
     </div>
     <div class="mountain">

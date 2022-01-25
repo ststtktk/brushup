@@ -26,6 +26,7 @@ Route::get('/tasks/access',function(){return view('tasks/access'); });
 Route::get('/career',[App\Http\Controllers\TaskController::class, 'timeview'])->name('timeview');
 Route::get('/careeredit',[App\Http\Controllers\TaskController::class, 'timeview'])->name('careeredit');
 Route::get('/brushup',function(){return view('tasks/brushup'); });
+Route::get('/manual',function(){return view('tasks/manual'); });
 Route::post('useradd',[App\Http\Controllers\TaskController::class, 'useradd'])->name('useradd');
 Route::post('/taskadd',[App\Http\Controllers\TaskController::class,'taskadd'])->name('taskadd');
 Route::post('/show',[App\Http\Controllers\TaskController::class,'show'])->name('show');
