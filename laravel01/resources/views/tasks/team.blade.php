@@ -69,8 +69,8 @@
                 <div class="menber1">
                     @if($team->team_menber1 == "")
                         <p>メンバー1</p>
-                        <input type="text" id="team_menber1" name="team_menber1" value="メンバーがいません">
-                        <input type="email" id="email_menber1" name="email_menber1" value="">
+                        <input type="text" id="team_menber1" name="team_menber1" placeholder="メンバーがいません">
+                        <input type="email" id="email_menber1" name="email_menber1" value=""> 
                     @else
                         <p>メンバー1</p>                     
                         <input type="text" id="team_menber1" name="team_menber1" value="{{$team->team_menber1}}">
@@ -80,7 +80,7 @@
                 <div class="menber2">
                     @if($team->team_menber2 == "")
                         <p>メンバー2</p>
-                        <input type="text" id="team_menber2" name="team_menber2" value="メンバーがいません">
+                        <input type="text" id="team_menber2" name="team_menber2" placeholder="メンバーがいません">
                         <input type="email" id="email_menber2" name="email_menber2" value="">
                     @else
                         <p>メンバー2</p>                     
@@ -91,7 +91,7 @@
                 <div class="menber3">
                     @if($team->team_menber3 == "")
                         <p>メンバー3</p>
-                        <input type="text" id="team_menber3" name="team_menber3" value="メンバーがいません">
+                        <input type="text" id="team_menber3" name="team_menber3" placeholder="メンバーがいません">
                         <input type="email" id="email_menber3" name="email_menber3" value="">
                     @else
                         <p>メンバー3</p>
@@ -102,7 +102,7 @@
                 <div class="menber4">
                     @if($team->team_menber4 == "")
                         <p>メンバー4</p>
-                        <input type="text" id="team_menber4" name="team_menber4" value="メンバーがいません">
+                        <input type="text" id="team_menber4" name="team_menber4" placeholder="メンバーがいません">
                         <input type="email" id="email_menber4" name="email_menber4" value="">
                     @else
                         <p>メンバー4</p>                 
@@ -113,7 +113,7 @@
                 <div class="menber5">
                     @if($team->team_menber5 == "")
                         <p>メンバー5</p>
-                        <input type="text" id="team_menber5" name="team_menber5" value="メンバーがいません">
+                        <input type="text" id="team_menber5" name="team_menber5" placeholder="メンバーがいません">
                         <input type="email" id="email_menber5" name="email_menber5" value="">
                     @else
                         <p>メンバー5</p>                     
@@ -124,7 +124,7 @@
                 <div class="menber6">
                     @if($team->team_menber6 == "")
                         <p>メンバー6</p>
-                        <input type="text" id="team_menber6" name="team_menber6" value="メンバーがいません">
+                        <input type="text" id="team_menber6" name="team_menber6" placeholder="メンバーがいません">
                         <input type="email" id="email_menber6" name="email_menber6" value="">
                     @else
                         <p>メンバー6</p>                  

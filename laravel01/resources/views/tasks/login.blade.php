@@ -2,7 +2,6 @@
 
 @section('content')
 
-
 <!-- ログインしている -->
 @auth
 <div class="logout">
@@ -12,30 +11,40 @@
     </form>
 </div>
 <h2>ログインユーザー：<?php $user=Auth::User(); ?>{{ $user->name }}</h2>
-<div class="access-view">
+<div class="access-viewtop">
+    <div class="mountain" id="circle">
+        <img src="/img/black-human.svg" alt="mountainの画像">
+    </div>
     <div class="point">
         <div class="career">
+            <h2>Career</h2>
+            <p>
+                自分もしくはチームメンバーのデータを確認、編集できます。<br>
+                自分のデータがない、自分が誰のチームにも所属していない場合は表示されません。
+            </p>
             <form action="{{ route('timeview') }}">
                 <input type="hidden" value="{{ $user->email }}" name="email">    
-                <input type="image" src="/img/Career.svg" value="チームメンバーを表示" name="search">
+                <input type="submit" value="▶︎" name="search">
             </form>
         </div>
         <div class="brushup">
-            <a href="brushup"><img src="/img/Brush up.svg" alt="burshupの画像"></a>
+            <h2>BrushUp</h2>
+            <p>データを新規作成できます</p>
+            <form action="brushup" method="get">
+                <input type="submit" value="▶︎">
+            </form>
         </div>
         <div class="team">
-            <a href="{{ route('team') }}"><img src="/img/teams.svg" alt="teamsの画像"></a>
-        </div>
-        <div class="more">
-            <img src="/img/More.svg" alt="moreの画像">
+            <h2>Team</h2>
+            <p>
+                チーム編成ができます。<br>
+                メンバーに登録することで、他人が自分のデータを閲覧可能になります。
+            </p>
+            <form action="{{ route('team') }}" method="get">
+                <input type="submit" value="▶︎">
+            </form>
         </div>
     </div>
-    <div class="mountain">
-        <img src="/img/mountain.svg" alt="mountainの画像">
-    </div>
-    <br>
-    <br>
-    <br>
 </div>
 @endauth
 

@@ -29,7 +29,7 @@
     <div class="line"></div>
     <div class="teammenber">
         <h3>チームメンバー</h3>
-        <p>ログインユーザーが所属するチームのメンバーが表示されます</p>
+        <p>ログインユーザーが所属するチームのメンバーが表示されます。自分のチームに所属するメンバーが表示されるわけではありません。</p>
         @foreach($teams as $team)
         <div class="teamlist">
             <ul>

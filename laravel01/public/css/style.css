@@ -130,69 +130,78 @@
     width: 80%;
 }
 
-.access-view .point img {
+.access-viewtop {
+    max-width: 100%;
+    text-align: center;
+    display: flex;
+}
+
+.access-viewtop .point {
+    width: 50%;
+    margin: auto;
+    font-size: large;
+    text-align: left;
+}
+
+.access-viewtop .point img {
     width: 100%;
 }
 
-.access-view .point .career {
-    margin-top: 135px;
-    margin-right: 30px;
+.access-viewtop .point .career {
+    margin-bottom: 50px;
+    width: 97%;
+    border: 1px dotted #626262;
 }
 
-.access-view .point .career input {
-    width: 100%;
+.access-viewtop .point .career form {
 }
 
-.access-view .point .career input:hover {
+.access-viewtop .point .career input {
+}
+
+.access-viewtop .point .career input:hover + .fukidasi {
     width: 110%;
 }
 
-.access-view .point .brushup {
-    margin-right: 30px;
+.access-viewtop .point .brushup {
+    margin-bottom: 50px;
+    width: 97%;
+    border: 1px dotted #626262;
 }
 
-.access-view .point .brushup img:hover {
+.access-viewtop .point .brushup img:hover {
     width: 110%;
 }
 
-.access-view .point .team {
-    margin-top: 135px;
-    margin-right: 30px;
+.access-viewtop .point .team {
+    border: 1px dotted #626262;
+    width: 97%;
 }
 
-.access-view .point .team img:hover {
+.access-viewtop .point .team img:hover {
     width: 110%;
 }
 
-.access-view .point .more img:hover {
+.access-viewtop .point .more img:hover {
     width: 110%;
 }
 
-.access-view .mountain {
-    overflow:hidden;
-    position: relative;
+.access-viewtop .mountain {
+    width: 50%;
 }
 
-.access-view .mountain:before{
-    animation: mountain 8s cubic-bezier(.4, 0, .2, 1) forwards;
-    background: #dddada;
-    bottom: 0;
-    content: '';
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
+.access-viewtop .mountain img {
+    width: 90%;
 }
 
-@keyframes mountain {
-    100% {
-      transform: translateX(100%);
-    }
+#circle{
+    animation:5s ease-in-out infinite alternate rotationy;
 }
 
-.access-view .mountain img {
-    width: 100%;
-}
+@keyframes rotationy{
+    0%{ transform:rotateY(0);}
+    100%{ transform:rotateY(360deg); }
+  }
 
 .form-brushup {
     display: flex;
@@ -202,8 +211,8 @@
     text-align: center;
 }
 
-.form-brushup .my_profile .time p{
-    color:red;
+.form-brushup .my_profile .time p {
+    color: red;
 }
 
 .form-brushup .task textarea {
@@ -315,7 +324,7 @@
     margin-top: 70px;
 }
 
-.chart p{
+.chart p {
     text-align: center;
     font-size: x-large;
 }
@@ -403,15 +412,15 @@
     left: 45%;
 }
 
-.grafu .grafuchart{
+.grafu .grafuchart {
     height: 100%;
     width: 100%;
 }
 
-.grafu .canvas-container{
+.grafu .canvas-container {
     height: 50%;
     width: 60%;
-    margin:auto;
+    margin: auto;
 }
 
 .teaching {
@@ -432,10 +441,9 @@
     position: relative;
 }
 
-.manual-mountain{
-
+.manual-mountain {
 }
 
-.manual-mountain img{
+.manual-mountain img {
     width: 100%;
 }
