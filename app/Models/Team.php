@@ -51,5 +51,6 @@ class Team extends Model
         ]);
     }
 
-    
+    public $timestamps = false;
+
 }
