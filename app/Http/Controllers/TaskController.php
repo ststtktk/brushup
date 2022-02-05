@@ -80,7 +80,7 @@ class TaskController extends Controller
             $userid = auth()->id();
             $teammail = $request->email;
             $tasks = Task::where('user_id',$userid)->orderBy('created_at','desc')->get();
-            dd($teammail);
+            dd($userid);
             $teams = Team::where('email_menber1',$teammail)->orwhere('email_menber2',$teammail)->orwhere('email_menber3',$teammail)->orwhere('email_menber4',$teammail)->orwhere('email_menber5',$teammail)->orwhere('email_menber6',$teammail)->get();
             return view('tasks.career',[
                 'tasks' => $tasks,
