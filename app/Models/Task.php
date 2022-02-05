@@ -73,4 +73,7 @@ class Task extends Model
     {
         return $this->where(['id'=>$tweet['id']])->delete();
     }
+
+    public $timestamps = false;
+
 }
