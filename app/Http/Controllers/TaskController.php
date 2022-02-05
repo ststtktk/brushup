@@ -80,7 +80,7 @@ class TaskController extends Controller
             $userid = auth()->id();
             $teammail = $request->email;
             $tasks = Task::where('user_id',$userid)->orderBy('created_at','desc')->get();
-            $teams = Team::where('email_menber1',$teammail)->orwhere('email_menber2',$teammail)->orwhere('email_menber3',$teammail)->orwhere('email_menber4',$teammail)->orwhere('email_menber5',$teammail)->orwhere('email_menber6',$teammail)->get();
+            $teams = Team::where("email_menber1",$teammail)->orwhere('email_menber2',$teammail)->orwhere('email_menber3',$teammail)->orwhere('email_menber4',$teammail)->orwhere('email_menber5',$teammail)->orwhere('email_menber6',$teammail)->get();
             return view('tasks.career',[
                 'tasks' => $tasks,
                 'teams' => $teams,
@@ -96,7 +96,7 @@ class TaskController extends Controller
             $teammail = $request->email;
             $teamview = $request->user_id;
             $tasks = Task::where('user_id',$userid)->orderBy('created_at','desc')->get();
-            $teams = Team::where('email_menber1',$teammail)->orwhere('email_menber2',$teammail)->orwhere('email_menber3',$teammail)->orwhere('email_menber4',$teammail)->orwhere('email_menber5',$teammail)->orwhere('email_menber6',$teammail)->get();
+            $teams = Team::where("email_menber1",$teammail)->orwhere('email_menber2',$teammail)->orwhere('email_menber3',$teammail)->orwhere('email_menber4',$teammail)->orwhere('email_menber5',$teammail)->orwhere('email_menber6',$teammail)->get();
             $times = Task::where('user_id',$teamview)->orderBy('created_at','desc')->get();
             return view('tasks.career',[
                 'teams' => $teams,
@@ -114,7 +114,7 @@ class TaskController extends Controller
             $userid = $request->id;
             $teammail = $request->email;
             $times = Task::where('user_id',$request->id)->where('time',$request->time)->get();
-            $teams = Team::where('email_menber1',$teammail)->orwhere('email_menber2',$teammail)->orwhere('email_menber3',$teammail)->orwhere('email_menber4',$teammail)->orwhere('email_menber5',$teammail)->orwhere('email_menber6',$teammail)->get();
+            $teams = Team::where("email_menber1",$teammail)->orwhere('email_menber2',$teammail)->orwhere('email_menber3',$teammail)->orwhere('email_menber4',$teammail)->orwhere('email_menber5',$teammail)->orwhere('email_menber6',$teammail)->get();
             $tasks = Task::where('user_id',$userid)->orderBy('created_at','asc')->get();
             return view('tasks.career',[
                 'times' =>$times,
