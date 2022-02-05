@@ -18,11 +18,17 @@ class CreateTeamsTable extends Migration
             $table->integer('user_id')->unsigned()->index();
             $table->string('main_name');
             $table->string('team_menber1');
+            $table->string('email_menber1');
             $table->string('team_menber2');
+            $table->string('email_menber2');
             $table->string('team_menber3');
+            $table->string('email_menber3');
             $table->string('team_menber4');
+            $table->string('email_menber4');
             $table->string('team_menber5');
+            $table->string('email_menber5');
             $table->string('team_menber6');
+            $table->string('email_menber6');
             $table->timestamps();
         });
     }
