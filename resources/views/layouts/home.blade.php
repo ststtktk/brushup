@@ -19,15 +19,12 @@
     <!-- Styles -->
     <link href="{{ asset('css/home.css') }}" rel="stylesheet">
 </head>
-
 <body>
     <div class="layout">
         <main class="">
             @yield('content')
         </main>
-    </div>
-
-    
+    </div>    
     <div class="box-contact">
         <img src="/img/company.png" alt="companyの写真">
         <div class="contact">
@@ -40,5 +37,4 @@
         </div>
     </div>
 </body>
-
 </html>
