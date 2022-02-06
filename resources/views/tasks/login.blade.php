@@ -158,11 +158,6 @@
                                     ログインする
                                 </button>
                             </div>
-                            @if (Route::has('password.request'))
-                                <a class="btn btn-link line2 line3" href="{{ route('password.request') }}">
-                                    パスワードを忘れた方はこちら
-                                </a>
-                            @endif
                         </div>
                     </form>
                 </div>

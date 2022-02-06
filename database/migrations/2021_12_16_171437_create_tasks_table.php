@@ -17,28 +17,28 @@ class CreateTasksTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
             $table->string('time');
-            $table->string('name');
-            $table->string('class');
-            $table->string('workyears');
-            $table->text('task');
-            $table->string('chief_name');
-            $table->string('chief_class');
-            $table->string('chief_workyears');
-            $table->string('ability1');
-            $table->string('ability2');
-            $table->string('ability3');
-            $table->string('ability4');
-            $table->string('ability5');
-            $table->string('chief_ability1');
-            $table->string('chief_ability2');
-            $table->string('chief_ability3');
-            $table->string('chief_ability4');
-            $table->string('chief_ability5');
-            $table->text('free');
-            $table->text('chief_free');
-            $table->timestamps();
+            $table->string('name')->nullable();
+            $table->string('class')->nullable();
+            $table->string('workyears')->nullable();
+            $table->text('task')->nullable();
+            $table->string('chief_name')->nullable();
+            $table->string('chief_class')->nullable();
+            $table->string('chief_workyears')->nullable();
+            $table->string('ability1')->nullable();
+            $table->string('ability2')->nullable();
+            $table->string('ability3')->nullable();
+            $table->string('ability4')->nullable();
+            $table->string('ability5')->nullable();
+            $table->string('chief_ability1')->nullable();
+            $table->string('chief_ability2')->nullable();
+            $table->string('chief_ability3')->nullable();
+            $table->string('chief_ability4')->nullable();
+            $table->string('chief_ability5')->nullable();
+            $table->text('free')->nullable();
+            $table->text('chief_free')->nullable();
+            $table->timestamp('updated_at')->useCurrent()->nullable();
+            $table->timestamp('created_at')->useCurrent()->nullable();
         });
-        
     }
 
     /**

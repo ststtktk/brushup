@@ -16,18 +16,19 @@ class CreateAbilitiesTable extends Migration
         Schema::create('abilities', function (Blueprint $table){
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
-            $table->string('name');
-            $table->string('ability1');
-            $table->string('ability2');
-            $table->string('ability3');
-            $table->string('ability4');
-            $table->string('ability5');
-            $table->string('chief_ability1');
-            $table->string('chief_ability2');
-            $table->string('chief_ability3');
-            $table->string('chief_ability4');
-            $table->string('chief_ability5');
-            $table->timestamps();
+            $table->string('name')->nullable();
+            $table->string('ability1')->nullable();
+            $table->string('ability2')->nullable();
+            $table->string('ability3')->nullable();
+            $table->string('ability4')->nullable();
+            $table->string('ability5')->nullable();
+            $table->string('chief_ability1')->nullable();
+            $table->string('chief_ability2')->nullable();
+            $table->string('chief_ability3')->nullable();
+            $table->string('chief_ability4')->nullable();
+            $table->string('chief_ability5')->nullable();
+            $table->timestamp('updated_at')->useCurrent()->nullable();
+            $table->timestamp('created_at')->useCurrent()->nullable();
         });
     }
 
