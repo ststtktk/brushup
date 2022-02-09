@@ -37,9 +37,3 @@ function register_alert(event)
         }
         document.registerform.submit();
 };
-
-const career = document.getElemeneById('career');
-//カーソルが上に乗った時
-career.addEventListener('mouseover',()=>{
-    
-}, false);
