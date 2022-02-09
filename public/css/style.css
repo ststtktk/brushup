@@ -280,11 +280,13 @@
     margin-right: 70px;
     background-color: #ffffff;
     border: 3px solid #35c748;
+    width: 50%;
 }
 
 .form .chief_profile {
     background-color: #ffffff;
     border: 3px solid #d73a3ab5;
+    width: 50%;
 }
 
 .form .task textarea {
